@@ -8,11 +8,16 @@
     "datatrans",
     "lightbox"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/datatrans/react-datatrans-lightbox.git"
+  },
+  "homepage": "https://www.datatrans.ch",
+  "email":"kolja.kirchner@datatrans.ch",
   "author": "Datatrans AG",
   "license": "MIT",
   "scripts": {
     "build": "NODE_ENV=production webpack --color --progress",
-    "test": "node tests.js",
     "watch": "NODE_ENV=production webpack --color --progress --watch"
   },
   "peerDependencies": {
