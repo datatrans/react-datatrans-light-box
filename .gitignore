@@ -1,0 +1,37 @@
+# Don't check auto-generated stuff into git
+coverage
+build
+node_modules
+stats.json
+merchants.json
+node_modules
+node_modules/
+**/node_modules/
+**/node_modules
+.git
+
+logs
+*.log
+pids
+*.pid
+*.seed
+lib-cov
+coverage
+.grunt
+.lock-wscript
+
+# Cruft
+.DS_Store
+npm-debug.log
+.idea
+
+*.sublime-project
+*.sublime-workspace
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+
+#
+.sass-cache
