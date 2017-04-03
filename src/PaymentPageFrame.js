@@ -1,11 +1,5 @@
-import React, {PropTypes, Component} from 'react'
+import React, {PropTypes} from 'react'
 import PaymentPage from './PaymentPage'
-import {set, filterProps} from './utils'
-
-
-const toUrlParams = props => Object.keys(props)
-.map(key => `${key}=${props[key]}`)
-.join('&')
 
 const baseStyle = {
   'zIndex': 9999,
