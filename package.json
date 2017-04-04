@@ -17,6 +17,7 @@
   "author": "Datatrans AG",
   "license": "MIT",
   "scripts": {
+    "test": "npm run build",
     "build": "NODE_ENV=production webpack --color --progress",
     "watch": "NODE_ENV=production webpack --color --progress --watch"
   },
@@ -50,4 +51,6 @@
     "webpack": "^2.3.2"
   },
   "dependencies": {}
+
+
 }
