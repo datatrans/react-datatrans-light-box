@@ -1,6 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
-
+const CompressionPlugin = require('compression-webpack-plugin')
 
 module.exports = {
   externals: {
@@ -26,13 +26,38 @@ module.exports = {
 
   },
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('production')
+    }),
     new webpack.optimize.UglifyJsPlugin({
+
+      beautify: false,
+      mangle: true,
+      output: {
+        comments: false,
+      },
       compress: {
-       screw_ie8: true,
+        screw_ie8: true,
         warnings: false, // ...but do not show warnings in the console (there is a lot of them)
+        unused: true,
+        dead_code: true, // big one--strip code that will never execute
+        warnings: false, // good for prod apps so users can't peek behind curtain
+        drop_debugger: true,
+        conditionals: true,
+        evaluate: true,
+        drop_console: true, // strips console statements
+        sequences: true,
+        booleans: true,
       },
       comments: false,
     }),
+    new CompressionPlugin({
+      asset: "[path].gz[query]",
+      algorithm: "gzip",
+      test: /\.js$|\.css$|\.html$/,
+      threshold: 10240,
+      minRatio: 0
+    })
   ],
 
   output: {

@@ -13,7 +13,7 @@
     "url": "git+https://github.com/datatrans/react-datatrans-lightbox.git"
   },
   "homepage": "https://www.datatrans.ch",
-  "email":"kolja.kirchner@datatrans.ch",
+  "email": "kolja.kirchner@datatrans.ch",
   "author": "Datatrans AG",
   "license": "MIT",
   "scripts": {
@@ -31,6 +31,7 @@
     "babel-loader": "^6.4.1",
     "babel-plugin-transform-class-properties": "^6.22.0",
     "babel-plugin-transform-object-rest-spread": "^6.22.0",
+    "babel-plugin-transform-react-remove-prop-types": "^0.3.2",
     "babel-polyfill": "^6.23.0",
     "babel-preset-2017": "0.0.0",
     "babel-preset-env": "^1.3.2",
@@ -38,6 +39,7 @@
     "babel-preset-latest": "^6.24.0",
     "babel-preset-react": "^6.23.0",
     "babel-preset-stage-0": "^6.22.0",
+    "compression-webpack-plugin": "^0.3.2",
     "eslint": "^3.11.1",
     "eslint-import-resolver-webpack": "^0.8.0",
     "eslint-loader": "^1.5.0",

@@ -25,7 +25,7 @@ const lockCss = `
   }
 `
 
-const rejectProps = ['production', 'onOpened', 'onCancel', 'onLoaded', 'onError']
+const rejectProps = ['production', 'onOpen', 'onCancel', 'onLoad', 'onError', 'version']
 
 const buildUrl = (props, production) => production
 ? 'https://payment.datatrans.biz/upp/jsp/upStart.jsp?' + toUrlParams(props)
@@ -72,7 +72,7 @@ export default class LightBox extends Component {
     if(ev.data == 'cancel') return this.props.onCancel()
     if(ev.data == 'frameReady') {
       this.setState({paymentPageLoaded: true})
-      return this.props.onLoaded()
+      return this.props.onLoad()
     }
     if(ev.data !== undefined && ev.data.type == 'error') {
       this.props.onError({
@@ -85,7 +85,7 @@ export default class LightBox extends Component {
   componentDidMount() {
     const addListener = addEventListener || attachEvent
     addListener('message', this.onMessage)
-    this.props.onOpened()
+    this.props.onOpen()
   }
 
   componentWillUnmount() {
@@ -117,16 +117,16 @@ LightBox.propTypes = {
 
   production: PropTypes.bool,
 
-  onOpened: PropTypes.func.isRequired,
+  onOpen: PropTypes.func.isRequired,
   onCancel: PropTypes.func.isRequired,
-  onLoaded: PropTypes.func.isRequired,
+  onLoad: PropTypes.func.isRequired,
   onError: PropTypes.func.isRequired,
 }
 
 LightBox.defaultProps = {
-  onOpened() {},
+  onOpen() {},
   onCancel() {},
-  onLoaded() {},
+  onLoad() {},
   onError() {},
   production: false,
   theme: 'DT2015',
