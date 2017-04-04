@@ -1,5 +1,5 @@
-# react-datatrans-lightbox
-Datatrans light box mode component for React.
+# react-datatrans-light-box
+Official Datatrans light box mode component for React.
 Render this component anywhere in your DOM tree in order to show the Datatrans payment page in fullscreen mode.
 
 React is defined as a peer dependency and expected to be made available by your project. Other than that this component is completely dependency-free.
@@ -7,20 +7,20 @@ React is defined as a peer dependency and expected to be made available by your 
 ## How to install
 
 ```bash
-npm i react-datatrans-lightbox --save
+npm i react-datatrans-light-box --save
 ```
 
 or
 
 ```bash
-yarn add react-datatrans-lightbox --save
+yarn add react-datatrans-light-box --save
 ```
 
 ## Example Usage
 ```javascript
 
 import React, {PropTypes, Component} from 'react'
-import Lightbox from 'react-datatrans-lightbox'
+import Lightbox from 'react-datatrans-light-box'
 
 export default class App extends Component {
 

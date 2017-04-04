@@ -1,5 +1,5 @@
 {
-  "name": "react-datatrans-lightbox",
+  "name": "react-datatrans-light-box",
   "version": "0.1.0",
   "description": "Datatrans light box component for react apps",
   "main": "lib/main.js",
@@ -10,7 +10,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/datatrans/react-datatrans-lightbox.git"
+    "url": "git+https://github.com/datatrans/react-datatrans-light-box.git"
   },
   "homepage": "https://www.datatrans.ch",
   "email": "kolja.kirchner@datatrans.ch",
