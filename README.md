@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/datatrans/react-datatrans-light-box.svg?branch=master)](https://travis-ci.org/datatrans/react-datatrans-light-box)
+
 # react-datatrans-light-box
 Official Datatrans light box mode component for React.
 Render this component anywhere in your DOM tree in order to show the Datatrans payment page in fullscreen mode.
