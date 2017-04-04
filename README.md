@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/datatrans/react-datatrans-light-box.svg?branch=master)](https://travis-ci.org/datatrans/react-datatrans-light-box)
+[![Build Status](https://circleci.com/gh/datatrans/react-datatrans-light-box.png?circle-token=:circle-token)](https://circleci.com/gh/datatrans/react-datatrans-light-box)
 
 # react-datatrans-light-box
 Official Datatrans light box mode component for React.
