@@ -34,7 +34,6 @@ export default class App extends Component {
     this.setState({showsLightBox: true})
   }
 
-
   render() {
     return <div>
       <div> Your React App </div>
@@ -44,7 +43,8 @@ export default class App extends Component {
         refno='1100004624'
         amount='1000'
         currency='CHF'
-      /> }
+        sign='xxx'
+      />}
     </div>
   }
 
@@ -61,6 +61,7 @@ Name | Type | Description
 ```refno``` | String | Any value by which you would like to reference the payment.
 ```amount``` | String |The amount in cents you would like to charge your customer.
 ```currency``` | String | The type of currency that will be used for the payment.
+```sign``` | String | Transaction security parameter. Find it in Datatrans' [Webadmin Tool](https://payment.datatrans.biz/). 
 
 ### Optional
 Name | Type |Description
