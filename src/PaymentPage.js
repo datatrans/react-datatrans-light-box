@@ -1,20 +1,11 @@
 import React, {PropTypes} from 'react'
-const iframeStyle = {
-  border: 0,
-  margin: 0,
-  padding: 0,
-  width: '100%',
-  height: '100%',
-  '-webkit-transform': 'translate3d(0, 0, 0)',
-}
-
-
+import styles from './styles'
 
 const PaymentPage = props => {
 
   return <iframe
     src={props.url}
-    style={iframeStyle}
+    style={styles.iframe}
     id='datatransPaymentFrame'
     name='datatransPaymentFrame'
     frameBorder={0}

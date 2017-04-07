@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "Datatrans light box component for react apps",
   "main": "lib/main.js",
+  "module": "src/index.js",
   "keywords": [
     "react",
     "datatrans",
