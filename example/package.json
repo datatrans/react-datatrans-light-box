@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "react": "^15.4.2",
-    "react-datatrans-light-box": "file:///home/mephju/datatrans/react-lightbox",
+    "react-datatrans-light-box": "^1.0.0",
     "react-dom": "^15.4.2"
   }
 }
