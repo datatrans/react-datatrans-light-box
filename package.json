@@ -23,7 +23,7 @@
     "watch": "NODE_ENV=production webpack --color --progress --watch"
   },
   "peerDependencies": {
-    "react": "^15.0.0"
+    "react": "^15.0.0 || ^16.0.0-0"
   },
   "devDependencies": {
     "babel": "^6.5.2",
@@ -51,5 +51,7 @@
     "eslint-plugin-react": "^6.8.0",
     "webpack": "^2.3.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "prop-types": "^15.5.10"
+  }
 }
