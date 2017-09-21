@@ -51,5 +51,7 @@
     "eslint-plugin-react": "^6.8.0",
     "webpack": "^2.3.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "prop-types": "^15.5.10"
+  }
 }
