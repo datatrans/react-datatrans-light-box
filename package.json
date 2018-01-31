@@ -1,6 +1,6 @@
 {
   "name": "react-datatrans-light-box",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Datatrans light box component for react apps",
   "main": "lib/main.js",
   "module": "src/index.js",
