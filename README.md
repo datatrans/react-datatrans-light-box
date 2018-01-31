@@ -15,7 +15,7 @@ npm i react-datatrans-light-box --save
 or
 
 ```bash
-yarn add react-datatrans-light-box --save
+yarn add react-datatrans-light-box
 ```
 
 ## LightBoxHoc - Higher-Order Component
