@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import PaymentPageFrame from './PaymentPageFrame'
 import {
   filterProps, toUrlParams, parseUrl,
@@ -71,21 +71,21 @@ export default class LightBox extends Component {
 }
 
 
-LightBox.propTypes = {
-  merchantId: PropTypes.string.isRequired,
-  refno: PropTypes.string.isRequired,
-  amount: PropTypes.string.isRequired,
-  currency: PropTypes.string.isRequired,
-  sign: PropTypes.string.isRequired,
+// LightBox.propTypes = {
+//   merchantId: PropTypes.string.isRequired,
+//   refno: PropTypes.string.isRequired,
+//   amount: PropTypes.string.isRequired,
+//   currency: PropTypes.string.isRequired,
+//   sign: PropTypes.string.isRequired,
 
-  production: PropTypes.bool,
-  showsPaymentPage: PropTypes.bool.isRequired,
+//   production: PropTypes.bool,
+//   showsPaymentPage: PropTypes.bool.isRequired,
 
-  onCancelled: PropTypes.func.isRequired,
-  onLoaded: PropTypes.func.isRequired,
-  onError: PropTypes.func.isRequired,
+//   onCancelled: PropTypes.func.isRequired,
+//   onLoaded: PropTypes.func.isRequired,
+//   onError: PropTypes.func.isRequired,
 
-}
+// }
 
 LightBox.defaultProps = {
   onCancelled() {},

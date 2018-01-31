@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import styles from './styles'
 
 const PaymentPage = props => {
@@ -15,8 +15,8 @@ const PaymentPage = props => {
 }
 
 
-PaymentPage.propTypes = {
-  url: PropTypes.string.isRequired,
-}
+// PaymentPage.propTypes = {
+//   url: PropTypes.string.isRequired,
+// }
 
 export default PaymentPage

@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import PaymentPage from './PaymentPage'
 import styles from './styles'
 
@@ -17,9 +17,9 @@ const PaymentPageFrame = props =>  {
   </div>
 }
 
-PaymentPageFrame.propTypes = {
-  url: PropTypes.string.isRequired,
-  showsPaymentPage: PropTypes.bool.isRequired,
-}
+// PaymentPageFrame.propTypes = {
+//   url: PropTypes.string.isRequired,
+//   showsPaymentPage: PropTypes.bool.isRequired,
+// }
 
 export default PaymentPageFrame

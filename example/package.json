@@ -15,9 +15,7 @@
     "test": "node tests.js",
     "watch": "NODE_ENV=development webpack --color --progress --watch"
   },
-  "peerDependencies": {
-    "react": "^15.0.0"
-  },
+  "peerDependencies": {},
   "devDependencies": {
     "babel": "^6.5.2",
     "babel-cli": "^6.22.2",
@@ -36,8 +34,9 @@
     "webpack": "^2.3.2"
   },
   "dependencies": {
-    "react": "^15.4.2",
-    "react-datatrans-light-box": "^1.0.0",
-    "react-dom": "^15.4.2"
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
+    "react-datatrans-light-box": "../",
+    "react-dom": "^16.2.0"
   }
 }
