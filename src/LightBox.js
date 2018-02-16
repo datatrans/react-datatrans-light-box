@@ -49,18 +49,14 @@ export default class LightBox extends Component {
     this.props.onCancelled()
   }
 
-  componentDidMount() {
-    if (typeof window !== 'undefined') {
-        const addListener = window.addEventListener || window.attachEvent
-        addListener('message', this.onMessage)
-    }
+  componentDidMount() {    
+    const addListener = window.addEventListener || window.attachEvent
+    addListener('message', this.onMessage)   
   }
 
-  componentWillUnmount() {
-    if (typeof window !== 'undefined') {
-        const removeListener = window.removeEventListener || window.detachEvent
-        removeListener('message', this.onMessage)
-    }
+  componentWillUnmount() {    
+    const removeListener = window.removeEventListener || window.detachEvent
+    removeListener('message', this.onMessage)    
     releaseLock()
   }
 
