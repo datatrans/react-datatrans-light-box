@@ -3,7 +3,7 @@ import React, {Component} from 'react'
 import PaymentPageFrame from './PaymentPageFrame'
 import {
   filterProps, toUrlParams, parseUrl,
-  removeListener, addListener, lockScrolling,
+  lockScrolling,
   releaseLock
 } from './utils'
 
@@ -49,12 +49,14 @@ export default class LightBox extends Component {
     this.props.onCancelled()
   }
 
-  componentDidMount() {
-    addListener('message', this.onMessage)
+  componentDidMount() {    
+    const addListener = window.addEventListener || window.attachEvent
+    addListener('message', this.onMessage)   
   }
 
-  componentWillUnmount() {
-    removeListener('message', this.onMessage)
+  componentWillUnmount() {    
+    const removeListener = window.removeEventListener || window.detachEvent
+    removeListener('message', this.onMessage)    
     releaseLock()
   }
 

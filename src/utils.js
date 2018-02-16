@@ -25,9 +25,6 @@ export const parseUrl = url => {
   return a
 }
 
-export const removeListener = window.removeEventListener || window.detachEvent
-export const addListener = window.addEventListener || window.attachEvent
-
 export const lockScrolling = () => {
   var element = document.createElement('style')
   element.innerHTML = styles.scrollLock
