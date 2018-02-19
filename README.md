@@ -1,4 +1,4 @@
-[![Build Status](https://circleci.com/gh/datatrans/react-datatrans-light-box.png?circle-token=:circle-token)](https://circleci.com/gh/datatrans/react-datatrans-light-box)
+[![NPM version][npm-version-image]][npm-url] [![Build Status](https://circleci.com/gh/datatrans/react-datatrans-light-box.png?circle-token=:circle-token)](https://circleci.com/gh/datatrans/react-datatrans-light-box)
 
 # react-datatrans-light-box
 Official Datatrans light box library for showing our payment page in React applications.
@@ -172,10 +172,12 @@ Name | Type | Description
 ### Optional
 |Name  | Type   |Description |
 |----- |:------ |------------|
-|`production` | Boolean | Indicates whether requests hit Datatrans' production or development environment. Defaults to *false*.| 
+|`production` | Boolean | Indicates whether requests hit Datatrans' production or development environment. Defaults to *false*.|
 |`onCancelled` | Function | Called when user has cancelled payment.|
 |`onLoaded` | Function | Called when payment page is loaded.|
 |`onError` | Function | Called when there was an error loading the payment page.|
 |and many more... | | Refer to this [PDF](https://pilot.datatrans.biz/showcase/doc/Technical_Implementation_Guide.pdf) to get the full list of supported parameters.|
 
 
+[npm-url]: https://npmjs.com/package/react-datatrans-light-box
+[npm-version-image]: https://img.shields.io/npm/v/react-datatrans-light-box.svg?style=flat-square
