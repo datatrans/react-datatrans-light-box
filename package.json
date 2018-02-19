@@ -17,9 +17,10 @@
   "author": "Datatrans AG",
   "license": "MIT",
   "scripts": {
-    "test": "npm run build",
+    "test": "npm run lint && npm run build",
     "build": "NODE_ENV=production webpack --color --progress",
-    "watch": "NODE_ENV=production webpack --color --progress --watch"
+    "watch": "NODE_ENV=production webpack --color --progress --watch",
+    "lint": "eslint ."
   },
   "peerDependencies": {
     "react": "^15.0.0 || ^16.0.0-0"
@@ -50,6 +51,5 @@
     "eslint-plugin-react": "^6.8.0",
     "webpack": "^2.3.2"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }

@@ -5,6 +5,3 @@ LightBox.Hoc = LightBoxHoc
 
 export {LightBoxHoc, LightBoxHoc as withLightBox}
 export default LightBox
-
-
-

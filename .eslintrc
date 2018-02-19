@@ -1,5 +1,4 @@
 {
-  // I want to use babel-eslint for parsing!
   "parser": "babel-eslint",
   "parserOptions": {
     "ecmaVersion": 6,
@@ -10,9 +9,7 @@
     }
   },
   "env": {
-    // I write for browser
     "browser": true,
-    // in CommonJS
     "node": true,
     "es6":true
   },
@@ -22,7 +19,6 @@
     "eslint:recommended",
     "plugin:react/recommended"
   ],
-  // To give you an idea how to override rule options:
   "rules": {
     "no-unresovled":0,
     "quotes": [2, "single"],
@@ -34,9 +30,8 @@
     "indent": [1, 2],
     "linebreak-style": ["error", "unix"],
 
-    "semi": ["error", "never"], // never use semicolons
+    "semi": ["error", "never"],
 
-    // override default options for rules from base configurations
     "comma-dangle": [0, "always"],
     "no-cond-assign": ["error", "always"],
 
@@ -44,14 +39,12 @@
     "react/jsx-uses-vars": 2,
     "react/react-in-jsx-scope": 2,
 
-    // disable rules from base configurations
     "no-console": 0,
     "no-dupe-args":2,
     "no-dupe-keys":2,
     "array-bracket-spacing": 2,
     "camelcase": 2,
     "comma-spacing": [0, {"before": false, "after": true}],
-    // "curly": [2, "multi"],
     "no-self-assign": 2,
     "no-extra-boolean-cast": 0,
     "flowtype/boolean-style": [
@@ -73,15 +66,6 @@
       2,
       "comma"
     ],
-    // "flowtype/require-parameter-type": 2,
-    // "flowtype/require-return-type": [
-    //   2,
-    //   "always",
-    //   {
-    //     "annotateUndefined": "never"
-    //   }
-    // ],
-    // "flowtype/require-valid-file-annotation": 2,
     "flowtype/semi": [
       2,
       "always"
