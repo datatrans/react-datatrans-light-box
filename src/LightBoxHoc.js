@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import LightBox from './LightBox'
 import {filterProps} from './utils'
 
@@ -105,19 +105,17 @@ const LightBoxHoc = Wrapee => class Wrapper extends Component {
   }
 }
 
-// LightBoxHoc.propType = PropTypes.shape({
+LightBoxHoc.propType = PropTypes.shape({
+  //LightBox state
+  visible: PropTypes.bool.isRequired,
+  loaded: PropTypes.bool.isRequired,
+  cancelled: PropTypes.bool.isRequired,
+  error: PropTypes.any,
 
-
-//   //LightBox state
-//   visible: PropTypes.bool.isRequired,
-//   loaded: PropTypes.bool.isRequired,
-//   cancelled: PropTypes.bool.isRequired,
-//   error: PropTypes.any,
-
-//   //Methods
-//   load: PropTypes.func.isRequired,
-//   show: PropTypes.func.isRequired,
-//   on: PropTypes.func.isRequired,
-// })
+  //Methods
+  load: PropTypes.func.isRequired,
+  show: PropTypes.func.isRequired,
+  on: PropTypes.func.isRequired,
+})
 
 export default LightBoxHoc

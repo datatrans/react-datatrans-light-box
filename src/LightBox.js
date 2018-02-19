@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import PaymentPageFrame from './PaymentPageFrame'
 import {
   filterProps, toUrlParams, parseUrl,
@@ -49,14 +49,14 @@ export default class LightBox extends Component {
     this.props.onCancelled()
   }
 
-  componentDidMount() {    
+  componentDidMount() {
     const addListener = window.addEventListener || window.attachEvent
-    addListener('message', this.onMessage)   
+    addListener('message', this.onMessage)
   }
 
-  componentWillUnmount() {    
+  componentWillUnmount() {
     const removeListener = window.removeEventListener || window.detachEvent
-    removeListener('message', this.onMessage)    
+    removeListener('message', this.onMessage)
     releaseLock()
   }
 
@@ -72,22 +72,21 @@ export default class LightBox extends Component {
 
 }
 
+LightBox.propTypes = {
+  merchantId: PropTypes.string.isRequired,
+  refno: PropTypes.string.isRequired,
+  amount: PropTypes.string.isRequired,
+  currency: PropTypes.string.isRequired,
+  sign: PropTypes.string.isRequired,
 
-// LightBox.propTypes = {
-//   merchantId: PropTypes.string.isRequired,
-//   refno: PropTypes.string.isRequired,
-//   amount: PropTypes.string.isRequired,
-//   currency: PropTypes.string.isRequired,
-//   sign: PropTypes.string.isRequired,
+  production: PropTypes.bool,
+  showsPaymentPage: PropTypes.bool.isRequired,
 
-//   production: PropTypes.bool,
-//   showsPaymentPage: PropTypes.bool.isRequired,
+  onCancelled: PropTypes.func.isRequired,
+  onLoaded: PropTypes.func.isRequired,
+  onError: PropTypes.func.isRequired,
 
-//   onCancelled: PropTypes.func.isRequired,
-//   onLoaded: PropTypes.func.isRequired,
-//   onError: PropTypes.func.isRequired,
-
-// }
+}
 
 LightBox.defaultProps = {
   onCancelled() {},

@@ -1221,8 +1221,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
       };return t.d(n, "a", n), n;
     }, t.o = function (e, t) {
       return Object.prototype.hasOwnProperty.call(e, t);
-    }, t.p = "", t(t.s = 8);
-  }([function (t, n) {
+    }, t.p = "", t(t.s = 13);
+  }([function (e, t, n) {
+    e.exports = n(11)();
+  }, function (t, n) {
     t.exports = e;
   }, function (e, t, n) {
     "use strict";
@@ -1239,7 +1241,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
       if (!e) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return !t || "object" != (typeof t === "undefined" ? "undefined" : _typeof(t)) && "function" != typeof t ? e : t;
     }function i(e, t) {
       if ("function" != typeof t && null !== t) throw new TypeError("Super expression must either be null or a function, not " + (typeof t === "undefined" ? "undefined" : _typeof(t)));e.prototype = Object.create(t && t.prototype, { constructor: { value: e, enumerable: !1, writable: !0, configurable: !0 } }), t && (Object.setPrototypeOf ? Object.setPrototypeOf(e, t) : e.__proto__ = t);
-    }Object.defineProperty(t, "__esModule", { value: !0 });var l = function () {
+    }Object.defineProperty(t, "__esModule", { value: !0 });var u = function () {
       function e(e, t) {
         for (var n = 0; n < t.length; n++) {
           var r = t[n];r.enumerable = r.enumerable || !1, r.configurable = !0, "value" in r && (r.writable = !0), Object.defineProperty(e, r.key, r);
@@ -1248,48 +1250,50 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         return n && e(t.prototype, n), r && e(t, r), t;
       };
     }(),
-        u = "function" == typeof Symbol && "symbol" == _typeof(Symbol.iterator) ? function (e) {
+        l = "function" == typeof Symbol && "symbol" == _typeof(Symbol.iterator) ? function (e) {
       return typeof e === "undefined" ? "undefined" : _typeof(e);
     } : function (e) {
       return e && "function" == typeof Symbol && e.constructor === Symbol && e !== Symbol.prototype ? "symbol" : typeof e === "undefined" ? "undefined" : _typeof(e);
     },
-        s = n(0),
+        s = n(1),
         c = r(s),
-        f = n(7),
+        f = n(0),
         d = r(f),
-        p = n(3),
-        h = ["production", "onCancelled", "onLoaded", "onError", "version"],
-        y = function y(e, t) {
-      return t ? "https://payment.datatrans.biz/upp/jsp/upStart.jsp?" + (0, p.toUrlParams)(e) : "https://pilot.datatrans.biz/upp/jsp/upStart.jsp?" + (0, p.toUrlParams)(e);
+        p = n(8),
+        h = r(p),
+        y = n(4),
+        b = ["production", "onCancelled", "onLoaded", "onError", "version"],
+        m = function m(e, t) {
+      return t ? "https://payment.datatrans.biz/upp/jsp/upStart.jsp?" + (0, y.toUrlParams)(e) : "https://pilot.datatrans.biz/upp/jsp/upStart.jsp?" + (0, y.toUrlParams)(e);
     },
-        m = function m(e) {
-      return "undefined" !== u(e.data) && "error" === e.data.type;
+        v = function v(e) {
+      return "undefined" !== l(e.data) && "error" === e.data.type;
     },
-        v = function (e) {
+        g = function (e) {
       function t(e) {
-        o(this, t);var n = a(this, (t.__proto__ || Object.getPrototypeOf(t)).call(this, e));n.onMessage = n.onMessage.bind(n), n.onCancelled = n.onCancelled.bind(n), (0, p.lockScrolling)();var r = (0, p.filterProps)(n.props, h);return n.url = y(r, n.props.production), n.origin = (0, p.parseUrl)(n.url).origin, n.state = { visible: !0 }, n;
-      }return i(t, e), l(t, [{ key: "onMessage", value: function value(e) {
-          if (e.origin === this.origin) return "cancel" === e.data ? this.onCancelled() : "frameReady" === e.data ? this.props.onLoaded() : m(e) ? this.props.onError(e.data) : void 0;
+        o(this, t);var n = a(this, (t.__proto__ || Object.getPrototypeOf(t)).call(this, e));n.onMessage = n.onMessage.bind(n), n.onCancelled = n.onCancelled.bind(n), (0, y.lockScrolling)();var r = (0, y.filterProps)(n.props, b);return n.url = m(r, n.props.production), n.origin = (0, y.parseUrl)(n.url).origin, n.state = { visible: !0 }, n;
+      }return i(t, e), u(t, [{ key: "onMessage", value: function value(e) {
+          if (e.origin === this.origin) return "cancel" === e.data ? this.onCancelled() : "frameReady" === e.data ? this.props.onLoaded() : v(e) ? this.props.onError(e.data) : void 0;
         } }, { key: "onCancelled", value: function value() {
-          this.setState({ visible: !1 }), (0, p.releaseLock)(), this.props.onCancelled();
+          this.setState({ visible: !1 }), (0, y.releaseLock)(), this.props.onCancelled();
         } }, { key: "componentDidMount", value: function value() {
-          (0, p.addListener)("message", this.onMessage);
+          (window.addEventListener || window.attachEvent)("message", this.onMessage);
         } }, { key: "componentWillUnmount", value: function value() {
-          (0, p.removeListener)("message", this.onMessage), (0, p.releaseLock)();
+          (window.removeEventListener || window.detachEvent)("message", this.onMessage), (0, y.releaseLock)();
         } }, { key: "render", value: function value() {
-          return this.state.visible ? c.default.createElement(d.default, { url: this.url, showsPaymentPage: this.props.showsPaymentPage }) : c.default.createElement("div", null, " do not render me ");
+          return this.state.visible ? c.default.createElement(h.default, { url: this.url, showsPaymentPage: this.props.showsPaymentPage }) : c.default.createElement("div", null, " do not render me ");
         } }]), t;
-    }(s.Component);t.default = v, v.defaultProps = { onCancelled: function onCancelled() {}, onLoaded: function onLoaded() {}, onError: function onError() {}, production: !1, theme: "DT2015", version: "1.0.2", showsPaymentPage: !0 };
+    }(s.Component);t.default = g, g.propTypes = { merchantId: d.default.string.isRequired, refno: d.default.string.isRequired, amount: d.default.string.isRequired, currency: d.default.string.isRequired, sign: d.default.string.isRequired, production: d.default.bool, showsPaymentPage: d.default.bool.isRequired, onCancelled: d.default.func.isRequired, onLoaded: d.default.func.isRequired, onError: d.default.func.isRequired }, g.defaultProps = { onCancelled: function onCancelled() {}, onLoaded: function onLoaded() {}, onError: function onError() {}, production: !1, theme: "DT2015", version: "1.0.2", showsPaymentPage: !0 };
   }, function (e, t, n) {
     "use strict";
-    Object.defineProperty(t, "__esModule", { value: !0 }), t.releaseLock = t.lockScrolling = t.addListener = t.removeListener = t.parseUrl = t.toUrlParams = t.set = t.filterProps = void 0;var r = Object.assign || function (e) {
+    Object.defineProperty(t, "__esModule", { value: !0 }), t.releaseLock = t.lockScrolling = t.parseUrl = t.toUrlParams = t.set = t.filterProps = void 0;var r = Object.assign || function (e) {
       for (var t = 1; t < arguments.length; t++) {
         var n = arguments[t];for (var r in n) {
           Object.prototype.hasOwnProperty.call(n, r) && (e[r] = n[r]);
         }
       }return e;
     },
-        o = n(1),
+        o = n(2),
         a = function (e) {
       return e && e.__esModule ? e : { default: e };
     }(o);t.filterProps = function (e, t) {
@@ -1304,7 +1308,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
       }).join("&");
     }, t.parseUrl = function (e) {
       var t = document.createElement("a");return t.href = e, t;
-    }, t.removeListener = removeEventListener || detachEvent, t.addListener = addEventListener || attachEvent, t.lockScrolling = function () {
+    }, t.lockScrolling = function () {
       var e = document.createElement("style");e.innerHTML = a.default.scrollLock, e.id = "scroll-lock", document.getElementsByTagName("head")[0].appendChild(e);
     }, t.releaseLock = function () {
       var e = document.getElementById("scroll-lock");e && (e.outerHTML = "");
@@ -1313,10 +1317,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     "use strict";
     function r(e) {
       return e && e.__esModule ? e : { default: e };
-    }Object.defineProperty(t, "__esModule", { value: !0 }), t.withLightBox = t.LightBoxHoc = void 0;var o = n(2),
+    }Object.defineProperty(t, "__esModule", { value: !0 }), t.withLightBox = t.LightBoxHoc = void 0;var o = n(3),
         a = r(o),
-        i = n(5),
-        l = r(i);a.default.Hoc = l.default, t.LightBoxHoc = l.default, t.withLightBox = l.default, t.default = a.default;
+        i = n(6),
+        u = r(i);a.default.Hoc = u.default, t.LightBoxHoc = u.default, t.withLightBox = u.default, t.default = a.default;
   }, function (e, t, n) {
     "use strict";
     function r(e) {
@@ -1327,14 +1331,14 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
       if (!e) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return !t || "object" != (typeof t === "undefined" ? "undefined" : _typeof(t)) && "function" != typeof t ? e : t;
     }function i(e, t) {
       if ("function" != typeof t && null !== t) throw new TypeError("Super expression must either be null or a function, not " + (typeof t === "undefined" ? "undefined" : _typeof(t)));e.prototype = Object.create(t && t.prototype, { constructor: { value: e, enumerable: !1, writable: !0, configurable: !0 } }), t && (Object.setPrototypeOf ? Object.setPrototypeOf(e, t) : e.__proto__ = t);
-    }Object.defineProperty(t, "__esModule", { value: !0 });var l = Object.assign || function (e) {
+    }Object.defineProperty(t, "__esModule", { value: !0 });var u = Object.assign || function (e) {
       for (var t = 1; t < arguments.length; t++) {
         var n = arguments[t];for (var r in n) {
           Object.prototype.hasOwnProperty.call(n, r) && (e[r] = n[r]);
         }
       }return e;
     },
-        u = function () {
+        l = function () {
       function e(e, t) {
         for (var n = 0; n < t.length; n++) {
           var r = t[n];r.enumerable = r.enumerable || !1, r.configurable = !0, "value" in r && (r.writable = !0), Object.defineProperty(e, r.key, r);
@@ -1343,25 +1347,27 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         return n && e(t.prototype, n), r && e(t, r), t;
       };
     }(),
-        s = n(0),
+        s = n(1),
         c = r(s),
-        f = n(2),
+        f = n(0),
         d = r(f),
         p = n(3),
-        h = function h() {
+        h = r(p),
+        y = n(4),
+        b = function b() {
       return new Error("payment page is not loaded yet.");
     },
-        y = { shouldLoad: !1, visible: !1, loaded: !1, error: null, cancelled: !1 },
-        m = function m(e) {
+        m = { shouldLoad: !1, visible: !1, loaded: !1, error: null, cancelled: !1 },
+        v = function v(e) {
       return function (t) {
         function n(e) {
-          o(this, n);var t = a(this, (n.__proto__ || Object.getPrototypeOf(n)).call(this, e));return t.load = t.load.bind(t), t.show = t.show.bind(t), t.on = t.on.bind(t), t.onLoaded = t.onLoaded.bind(t), t.onCancelled = t.onCancelled.bind(t), t.onError = t.onError.bind(t), t.config = {}, t.state = l({}, y, { load: t.load, show: t.show, on: t.on }), t.listeners = { cancelled: [], error: [], loaded: [] }, t;
-        }return i(n, t), u(n, [{ key: "onCancelled", value: function value() {
+          o(this, n);var t = a(this, (n.__proto__ || Object.getPrototypeOf(n)).call(this, e));return t.load = t.load.bind(t), t.show = t.show.bind(t), t.on = t.on.bind(t), t.onLoaded = t.onLoaded.bind(t), t.onCancelled = t.onCancelled.bind(t), t.onError = t.onError.bind(t), t.config = {}, t.state = u({}, m, { load: t.load, show: t.show, on: t.on }), t.listeners = { cancelled: [], error: [], loaded: [] }, t;
+        }return i(n, t), l(n, [{ key: "onCancelled", value: function value() {
             this.listeners.cancelled.forEach(function (e) {
               return e();
-            }), this.setState(l({}, y, { cancelled: !0 }));
+            }), this.setState(u({}, m, { cancelled: !0 }));
           } }, { key: "onError", value: function value(e) {
-            var t = this;this.setState(l({}, y, { error: e }), function () {
+            var t = this;this.setState(u({}, m, { error: e }), function () {
               return t.listeners.error.forEach(function (t) {
                 return t(e);
               });
@@ -1377,23 +1383,25 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
           } }, { key: "load", value: function value(e) {
             this.config = e, this.setState({ shouldLoad: !0 });
           } }, { key: "show", value: function value() {
-            if (!this.state.loaded) throw h();this.setState({ visible: !0 });
+            if (!this.state.loaded) throw b();this.setState({ visible: !0 });
           } }, { key: "render", value: function value() {
-            return c.default.createElement("div", null, this.state.shouldLoad && c.default.createElement(d.default, l({}, this.config, { onLoaded: this.onLoaded, showsPaymentPage: this.state.visible, onCancelled: this.onCancelled, onError: this.onError })), c.default.createElement(e, l({}, this.props, { lightBox: (0, p.filterProps)(this.state, ["shouldLoad"]) })));
+            return c.default.createElement("div", null, this.state.shouldLoad && c.default.createElement(h.default, u({}, this.config, { onLoaded: this.onLoaded, showsPaymentPage: this.state.visible, onCancelled: this.onCancelled, onError: this.onError })), c.default.createElement(e, u({}, this.props, { lightBox: (0, y.filterProps)(this.state, ["shouldLoad"]) })));
           } }]), n;
       }(s.Component);
-    };t.default = m;
+    };v.propType = d.default.shape({ visible: d.default.bool.isRequired, loaded: d.default.bool.isRequired, cancelled: d.default.bool.isRequired, error: d.default.any, load: d.default.func.isRequired, show: d.default.func.isRequired, on: d.default.func.isRequired }), t.default = v;
   }, function (e, t, n) {
     "use strict";
     function r(e) {
       return e && e.__esModule ? e : { default: e };
-    }Object.defineProperty(t, "__esModule", { value: !0 });var o = n(0),
+    }Object.defineProperty(t, "__esModule", { value: !0 });var o = n(1),
         a = r(o),
-        i = n(1),
-        l = r(i),
-        u = function u(e) {
-      return a.default.createElement("iframe", { src: e.url, style: l.default.iframe, id: "datatransPaymentFrame", name: "datatransPaymentFrame", frameBorder: 0, allowTransparency: !0 });
-    };t.default = u;
+        i = n(0),
+        u = r(i),
+        l = n(2),
+        s = r(l),
+        c = function c(e) {
+      return a.default.createElement("iframe", { src: e.url, style: s.default.iframe, id: "datatransPaymentFrame", name: "datatransPaymentFrame", frameBorder: 0, allowTransparency: !0 });
+    };c.propTypes = { url: u.default.string.isRequired }, t.default = c;
   }, function (e, t, n) {
     "use strict";
     function r(e) {
@@ -1405,17 +1413,56 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         }
       }return e;
     },
-        a = n(0),
+        a = n(1),
         i = r(a),
-        l = n(6),
-        u = r(l),
-        s = n(1),
+        u = n(0),
+        l = r(u),
+        s = n(7),
         c = r(s),
-        f = function f(e) {
-      var t = e.showsPaymentPage ? o({}, c.default.pageFrame, { display: "block" }) : c.default.pageFrame;return i.default.createElement("div", { style: t }, i.default.createElement(u.default, { url: e.url }));
-    };t.default = f;
+        f = n(2),
+        d = r(f),
+        p = function p(e) {
+      var t = e.showsPaymentPage ? o({}, d.default.pageFrame, { display: "block" }) : d.default.pageFrame;return i.default.createElement("div", { style: t }, i.default.createElement(c.default, { url: e.url }));
+    };p.propTypes = { url: l.default.string.isRequired, showsPaymentPage: l.default.bool.isRequired }, t.default = p;
   }, function (e, t, n) {
-    e.exports = n(4);
+    "use strict";
+    function r(e) {
+      return function () {
+        return e;
+      };
+    }var o = function o() {};o.thatReturns = r, o.thatReturnsFalse = r(!1), o.thatReturnsTrue = r(!0), o.thatReturnsNull = r(null), o.thatReturnsThis = function () {
+      return this;
+    }, o.thatReturnsArgument = function (e) {
+      return e;
+    }, e.exports = o;
+  }, function (e, t, n) {
+    "use strict";
+    function r(e, t, n, r, a, i, u, l) {
+      if (o(t), !e) {
+        var s;if (void 0 === t) s = new Error("Minified exception occurred; use the non-minified dev environment for the full error message and additional helpful warnings.");else {
+          var c = [n, r, a, i, u, l],
+              f = 0;s = new Error(t.replace(/%s/g, function () {
+            return c[f++];
+          })), s.name = "Invariant Violation";
+        }throw s.framesToPop = 1, s;
+      }
+    }var o = function o(e) {};e.exports = r;
+  }, function (e, t, n) {
+    "use strict";
+    var r = n(9),
+        o = n(10),
+        a = n(12);e.exports = function () {
+      function e(e, t, n, r, i, u) {
+        u !== a && o(!1, "Calling PropTypes validators directly is not supported by the `prop-types` package. Use PropTypes.checkPropTypes() to call them. Read more at http://fb.me/use-check-prop-types");
+      }function t() {
+        return e;
+      }e.isRequired = e;var n = { array: e, bool: e, func: e, number: e, object: e, string: e, symbol: e, any: e, arrayOf: t, element: e, instanceOf: t, node: e, objectOf: t, oneOf: t, oneOfType: t, shape: t, exact: t };return n.checkPropTypes = r, n.PropTypes = n, n;
+    };
+  }, function (e, t, n) {
+    "use strict";
+    e.exports = "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED";
+  }, function (e, t, n) {
+    e.exports = n(5);
   }]);
 });
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(28)(module)))
@@ -8148,7 +8195,6 @@ var LightBoxHocApproachBase = function (_Component3) {
 
 LightBoxHocApproachBase.propTypes = {
   lightBox: _reactDatatransLightBox2.default.Hoc.propType
-
 };
 
 var LightBoxHocApproach = _reactDatatransLightBox2.default.Hoc(LightBoxHocApproachBase);
