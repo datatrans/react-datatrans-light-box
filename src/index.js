@@ -1,4 +1,4 @@
-import LightBox from './LightBox.js'
+import LightBox from './LightBox'
 import LightBoxHoc from './LightBoxHoc'
 
 LightBox.Hoc = LightBoxHoc

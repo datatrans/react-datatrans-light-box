@@ -1,7 +1,5 @@
-
-import React, {PropTypes, Component} from 'react'
+import React, { Component } from 'react'
 import LightBox from 'react-datatrans-light-box'
-
 
 const config = {
   merchantId: '1100004624',
@@ -97,11 +95,8 @@ class LightBoxHocApproachBase extends Component {
 
 }
 
-
 LightBoxHocApproachBase.propTypes = {
   lightBox: LightBox.Hoc.propType,
-
 }
 
 const LightBoxHocApproach = LightBox.Hoc(LightBoxHocApproachBase)
-

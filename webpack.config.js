@@ -1,6 +1,5 @@
 const path = require('path')
 const webpack = require('webpack')
-const CompressionPlugin = require('compression-webpack-plugin')
 
 module.exports = {
   externals: {
@@ -9,14 +8,6 @@ module.exports = {
       commonjs2: 'react',
       commonjs: 'react',
       amd: 'react'
-    },
-    'prop-types': {
-      react: {
-        root: 'PropTypes',
-        commonjs2: 'prop-types',
-        commonjs: 'prop-types',
-        amd: 'prop-types'
-      }
     }
   },
   module: {
@@ -31,14 +22,12 @@ module.exports = {
   },
   entry: {
     main: ['./src/index.js'],
-
   },
   plugins: [
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production')
     }),
     new webpack.optimize.UglifyJsPlugin({
-
       beautify: false,
       mangle: true,
       output: {
@@ -57,13 +46,6 @@ module.exports = {
         booleans: true,
       },
       comments: false,
-    }),
-    new CompressionPlugin({
-      asset: '[path].gz[query]',
-      algorithm: 'gzip',
-      test: /\.js$|\.css$|\.html$/,
-      threshold: 10240,
-      minRatio: 0
     })
   ],
 

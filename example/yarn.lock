@@ -2400,9 +2400,7 @@ rc@^1.1.7:
     strip-json-comments "~2.0.1"
 
 react-datatrans-light-box@../:
-  version "1.0.2"
-  dependencies:
-    prop-types "^15.6.0"
+  version "1.0.4"
 
 react-dom@^16.2.0:
   version "16.2.0"
