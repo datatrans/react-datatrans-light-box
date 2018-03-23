@@ -10,7 +10,6 @@ const PaymentPage = props => {
     id='datatransPaymentFrame'
     name='datatransPaymentFrame'
     frameBorder={0}
-    allowTransparency={true}
   />
 }
 
