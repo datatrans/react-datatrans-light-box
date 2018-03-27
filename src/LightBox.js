@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import PaymentPageFrame from './PaymentPageFrame'
 import {
-  filterProps, toUrlParams, parseUrl,
+  filterProps, toUrlParams, getBaseUrl,
   lockScrolling,
   releaseLock
 } from './utils'
@@ -31,7 +31,7 @@ export default class LightBox extends Component {
 
     const urlParams = filterProps(this.props, rejectProps)
     this.url = buildUrl(urlParams, this.props.production)
-    this.origin = parseUrl(this.url).origin
+    this.origin = getBaseUrl(this.url)
 
     this.state = { visible: true}
   }
