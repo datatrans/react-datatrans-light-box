@@ -4,17 +4,13 @@
 Official Datatrans light box library for showing our payment page in React applications.
 React is defined as a peer dependency and expected to be made available by your project. Other than that this library is completely dependency-free.
 
-
-
 ## How to install
 
 ```bash
+# using npm
 npm i react-datatrans-light-box --save
-```
 
-or
-
-```bash
+# using yarn
 yarn add react-datatrans-light-box
 ```
 
@@ -27,7 +23,6 @@ The LightBox HOC wraps your target component in a `div` tag and adds a LightBox 
 ### Example Usage of LightBoxHoc
 
 ```javascript
-
 const config = {
   merchantId: '1100004624',
   refno: '11000asdfasdf4624',
@@ -38,7 +33,6 @@ const config = {
 }
 
 class LightBoxHocApproachBase extends Component {
-
   constructor(props) {
     super(props)
 
@@ -50,13 +44,10 @@ class LightBoxHocApproachBase extends Component {
   }
 
   render() {
-
     const {lightBox} = this.props
 
     return <div>
-
       <h1> Test LightBoxHoc Apprach </h1>
-
       <div> props.lightBox: </div>
       <pre> {JSON.stringify(lightBox, null, 2)} </pre>
 
@@ -67,10 +58,8 @@ class LightBoxHocApproachBase extends Component {
       <button onClick={() => lightBox.load(config)}>
         load lightbox with HOC
       </button>
-
     </div>
   }
-
 }
 
 LightBoxHocApproachBase.propTypes = {
@@ -78,7 +67,6 @@ LightBoxHocApproachBase.propTypes = {
 }
 
 const LightBoxHocApproach = LightBox.Hoc(LightBoxHocApproachBase)
-
 ```
 
 ### props.lightBox
@@ -99,15 +87,12 @@ LightBoxHoc.propType = PropTypes.shape({
 })
 ```
 
-
 ## Example Usage of LightBox component
 You can also use a more direct approach and display the LightBox component whenever or whereever you like.
 
 ```javascript
-
 import React, {PropTypes, Component} from 'react'
 import Lightbox from 'react-datatrans-light-box'
-
 
 const config = {
   merchantId: '1100004624',
@@ -119,7 +104,6 @@ const config = {
 }
 
 class LightBoxApproach extends Component {
-
   constructor(props) {
     super(props)
     this.state = {
@@ -133,23 +117,21 @@ class LightBoxApproach extends Component {
   }
 
   render() {
-
     return <div>
       <h1> Test LightBox Approach </h1>
       <div>
-        { this.state.showsLightBox
+        {this.state.showsLightBox
           ? 'LightBox is rendered and cannot be reused.'
-          : <button onClick={this.start}> start lightbox </button>
+          : <button onClick={this.start}>start lightbox</button>
         }
 
-        { this.state.showsLightBox && <LightBox {...config} /> }
+        {this.state.showsLightBox && <LightBox {...config} />}
 
-        { this.state.error && <div>{JSON.stringify(this.state.error)}</div> }
+        {this.state.error && <div>{JSON.stringify(this.state.error)}</div>}
       </div>
     </div>
   }
 }
-
 ```
 
 ## Props
@@ -167,8 +149,6 @@ Name | Type | Description
 `currency` | String | The type of currency that will be used for the payment.|
 `sign` | String | Transaction security parameter. Find it in Datatrans' [Webadmin Tool](https://payment.datatrans.biz/). |
 
-
-
 ### Optional
 |Name  | Type   |Description |
 |----- |:------ |------------|
@@ -177,7 +157,6 @@ Name | Type | Description
 |`onLoaded` | Function | Called when payment page is loaded.|
 |`onError` | Function | Called when there was an error loading the payment page.|
 |and many more... | | Refer to this [PDF](https://pilot.datatrans.biz/showcase/doc/Technical_Implementation_Guide.pdf) to get the full list of supported parameters.|
-
 
 [npm-url]: https://npmjs.com/package/react-datatrans-light-box
 [npm-version-image]: https://img.shields.io/npm/v/react-datatrans-light-box.svg?style=flat-square

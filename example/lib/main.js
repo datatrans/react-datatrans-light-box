@@ -1262,8 +1262,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         p = n(8),
         h = r(p),
         y = n(4),
-        b = ["production", "onCancelled", "onLoaded", "onError", "version"],
-        m = function m(e, t) {
+        m = ["production", "onCancelled", "onLoaded", "onError", "version"],
+        b = function b(e, t) {
       return t ? "https://payment.datatrans.biz/upp/jsp/upStart.jsp?" + (0, y.toUrlParams)(e) : "https://pilot.datatrans.biz/upp/jsp/upStart.jsp?" + (0, y.toUrlParams)(e);
     },
         v = function v(e) {
@@ -1271,7 +1271,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     },
         g = function (e) {
       function t(e) {
-        o(this, t);var n = a(this, (t.__proto__ || Object.getPrototypeOf(t)).call(this, e));n.onMessage = n.onMessage.bind(n), n.onCancelled = n.onCancelled.bind(n), (0, y.lockScrolling)();var r = (0, y.filterProps)(n.props, b);return n.url = m(r, n.props.production), n.origin = (0, y.parseUrl)(n.url).origin, n.state = { visible: !0 }, n;
+        o(this, t);var n = a(this, (t.__proto__ || Object.getPrototypeOf(t)).call(this, e));n.onMessage = n.onMessage.bind(n), n.onCancelled = n.onCancelled.bind(n), (0, y.lockScrolling)();var r = (0, y.filterProps)(n.props, m);return n.url = b(r, n.props.production), n.origin = (0, y.getBaseUrl)(n.url), n.state = { visible: !0 }, n;
       }return i(t, e), u(t, [{ key: "onMessage", value: function value(e) {
           if (e.origin === this.origin) return "cancel" === e.data ? this.onCancelled() : "frameReady" === e.data ? this.props.onLoaded() : v(e) ? this.props.onError(e.data) : void 0;
         } }, { key: "onCancelled", value: function value() {
@@ -1286,30 +1286,38 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     }(s.Component);t.default = g, g.propTypes = { merchantId: d.default.string.isRequired, refno: d.default.string.isRequired, amount: d.default.string.isRequired, currency: d.default.string.isRequired, sign: d.default.string.isRequired, production: d.default.bool, showsPaymentPage: d.default.bool.isRequired, onCancelled: d.default.func.isRequired, onLoaded: d.default.func.isRequired, onError: d.default.func.isRequired }, g.defaultProps = { onCancelled: function onCancelled() {}, onLoaded: function onLoaded() {}, onError: function onError() {}, production: !1, theme: "DT2015", version: "1.0.2", showsPaymentPage: !0 };
   }, function (e, t, n) {
     "use strict";
-    Object.defineProperty(t, "__esModule", { value: !0 }), t.releaseLock = t.lockScrolling = t.parseUrl = t.toUrlParams = t.set = t.filterProps = void 0;var r = Object.assign || function (e) {
+    function r(e) {
+      if (Array.isArray(e)) {
+        for (var t = 0, n = Array(e.length); t < e.length; t++) {
+          n[t] = e[t];
+        }return n;
+      }return Array.from(e);
+    }Object.defineProperty(t, "__esModule", { value: !0 }), t.releaseLock = t.lockScrolling = t.getBaseUrl = t.toUrlParams = t.set = t.filterProps = void 0;var o = Object.assign || function (e) {
       for (var t = 1; t < arguments.length; t++) {
         var n = arguments[t];for (var r in n) {
           Object.prototype.hasOwnProperty.call(n, r) && (e[r] = n[r]);
         }
       }return e;
     },
-        o = n(2),
-        a = function (e) {
+        a = n(2),
+        i = function (e) {
       return e && e.__esModule ? e : { default: e };
-    }(o);t.filterProps = function (e, t) {
-      var n = r({}, e);return t.forEach(function (e) {
+    }(a);t.filterProps = function (e, t) {
+      var n = o({}, e);return t.forEach(function (e) {
         return delete n[e];
       }), n;
     }, t.set = function (e, t, n) {
       return e[t] = n, e;
     }, t.toUrlParams = function (e) {
-      return Object.keys(e).map(function (t) {
-        return t + "=" + e[t];
-      }).join("&");
-    }, t.parseUrl = function (e) {
-      var t = document.createElement("a");return t.href = e, t;
+      return Object.keys(e).reduce(function (t, n) {
+        var o = e[n];return Array.isArray(o) ? [].concat(r(t), r(o.map(function (e) {
+          return n + "=" + encodeURIComponent(e);
+        }))) : [].concat(r(t), [n + "=" + encodeURIComponent(o)]);
+      }, []).join("&");
+    }, t.getBaseUrl = function (e) {
+      var t = e.split("/");return t[0] + "//" + t[2];
     }, t.lockScrolling = function () {
-      var e = document.createElement("style");e.innerHTML = a.default.scrollLock, e.id = "scroll-lock", document.getElementsByTagName("head")[0].appendChild(e);
+      var e = document.createElement("style");e.innerHTML = i.default.scrollLock, e.id = "scroll-lock", document.getElementsByTagName("head")[0].appendChild(e);
     }, t.releaseLock = function () {
       var e = document.getElementById("scroll-lock");e && (e.outerHTML = "");
     };
@@ -1354,20 +1362,20 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         p = n(3),
         h = r(p),
         y = n(4),
-        b = function b() {
+        m = function m() {
       return new Error("payment page is not loaded yet.");
     },
-        m = { shouldLoad: !1, visible: !1, loaded: !1, error: null, cancelled: !1 },
+        b = { shouldLoad: !1, visible: !1, loaded: !1, error: null, cancelled: !1 },
         v = function v(e) {
       return function (t) {
         function n(e) {
-          o(this, n);var t = a(this, (n.__proto__ || Object.getPrototypeOf(n)).call(this, e));return t.load = t.load.bind(t), t.show = t.show.bind(t), t.on = t.on.bind(t), t.onLoaded = t.onLoaded.bind(t), t.onCancelled = t.onCancelled.bind(t), t.onError = t.onError.bind(t), t.config = {}, t.state = u({}, m, { load: t.load, show: t.show, on: t.on }), t.listeners = { cancelled: [], error: [], loaded: [] }, t;
+          o(this, n);var t = a(this, (n.__proto__ || Object.getPrototypeOf(n)).call(this, e));return t.load = t.load.bind(t), t.show = t.show.bind(t), t.on = t.on.bind(t), t.onLoaded = t.onLoaded.bind(t), t.onCancelled = t.onCancelled.bind(t), t.onError = t.onError.bind(t), t.config = {}, t.state = u({}, b, { load: t.load, show: t.show, on: t.on }), t.listeners = { cancelled: [], error: [], loaded: [] }, t;
         }return i(n, t), l(n, [{ key: "onCancelled", value: function value() {
             this.listeners.cancelled.forEach(function (e) {
               return e();
-            }), this.setState(u({}, m, { cancelled: !0 }));
+            }), this.setState(u({}, b, { cancelled: !0 }));
           } }, { key: "onError", value: function value(e) {
-            var t = this;this.setState(u({}, m, { error: e }), function () {
+            var t = this;this.setState(u({}, b, { error: e }), function () {
               return t.listeners.error.forEach(function (t) {
                 return t(e);
               });
@@ -1383,7 +1391,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
           } }, { key: "load", value: function value(e) {
             this.config = e, this.setState({ shouldLoad: !0 });
           } }, { key: "show", value: function value() {
-            if (!this.state.loaded) throw b();this.setState({ visible: !0 });
+            if (!this.state.loaded) throw m();this.setState({ visible: !0 });
           } }, { key: "render", value: function value() {
             return c.default.createElement("div", null, this.state.shouldLoad && c.default.createElement(h.default, u({}, this.config, { onLoaded: this.onLoaded, showsPaymentPage: this.state.visible, onCancelled: this.onCancelled, onError: this.onError })), c.default.createElement(e, u({}, this.props, { lightBox: (0, y.filterProps)(this.state, ["shouldLoad"]) })));
           } }]), n;
@@ -1400,7 +1408,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         l = n(2),
         s = r(l),
         c = function c(e) {
-      return a.default.createElement("iframe", { src: e.url, style: s.default.iframe, id: "datatransPaymentFrame", name: "datatransPaymentFrame", frameBorder: 0, allowTransparency: !0 });
+      return a.default.createElement("iframe", { src: e.url, style: s.default.iframe, id: "datatransPaymentFrame", name: "datatransPaymentFrame", frameBorder: 0 });
     };c.propTypes = { url: u.default.string.isRequired }, t.default = c;
   }, function (e, t, n) {
     "use strict";
@@ -8044,7 +8052,8 @@ var config = {
   amount: '1000',
   currency: 'CHF',
   sign: 'adsadf',
-  production: false
+  production: false,
+  paymentmethod: ['ECA', 'VIS', 'AMX']
 };
 
 var App = function (_Component) {
@@ -8059,7 +8068,6 @@ var App = function (_Component) {
   _createClass(App, [{
     key: 'render',
     value: function render() {
-
       return _react2.default.createElement(
         'div',
         null,
@@ -8097,7 +8105,6 @@ var LightBoxApproach = function (_Component2) {
   }, {
     key: 'render',
     value: function render() {
-
       return _react2.default.createElement(
         'div',
         null,

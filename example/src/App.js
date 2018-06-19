@@ -8,25 +8,19 @@ const config = {
   currency: 'CHF',
   sign: 'adsadf',
   production: false,
+  paymentmethod: ['ECA', 'VIS', 'AMX'],
 }
 
 export default class App extends Component {
-
   render() {
-
     return <div>
       <LightBoxApproach />
       <LightBoxHocApproach />
-
     </div>
   }
-
 }
 
-
-
 class LightBoxApproach extends Component {
-
   constructor(props) {
     super(props)
     this.state = {
@@ -40,7 +34,6 @@ class LightBoxApproach extends Component {
   }
 
   render() {
-
     return <div>
       <h1> Test LightBox Approach </h1>
       <div>
@@ -70,15 +63,11 @@ class LightBoxHocApproachBase extends Component {
     })
   }
 
-
   render() {
-
     const {lightBox} = this.props
 
     return <div>
-
       <h1> Test LightBoxHoc Apprach </h1>
-
       <div> props.lightBox: </div>
       <pre> {JSON.stringify(lightBox, null, 2)} </pre>
 
@@ -89,7 +78,6 @@ class LightBoxHocApproachBase extends Component {
       <button onClick={() => lightBox.load(config)}>
         load lightbox with HOC
       </button>
-
     </div>
   }
 

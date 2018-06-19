@@ -16,8 +16,16 @@ export const set = (target, key, value) => {
 }
 
 export const toUrlParams = props => Object.keys(props)
-.map(key => `${key}=${props[key]}`)
-.join('&')
+  .reduce((prev, key) => {
+    const value = props[key]
+
+    if (Array.isArray(value)) {
+      return [...prev, ...value.map(v => `${key}=${encodeURIComponent(v)}`)]
+    }
+
+    return [...prev, `${key}=${encodeURIComponent(value)}`]
+  }, [])
+  .join('&')
 
 export const getBaseUrl = url => {
   const pathArray = url.split('/')
