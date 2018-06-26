@@ -23,6 +23,10 @@ export const toUrlParams = props => Object.keys(props)
       return [...prev, ...value.map(v => `${key}=${encodeURIComponent(v)}`)]
     }
 
+    if (value !== null && typeof value === 'object') {
+      return [...prev, `${key}=${encodeURIComponent(JSON.stringify(value))}`]
+    }
+
     return [...prev, `${key}=${encodeURIComponent(value)}`]
   }, [])
   .join('&')

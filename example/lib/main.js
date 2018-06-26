@@ -1230,16 +1230,16 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     "use strict";
     Object.defineProperty(t, "__esModule", { value: !0 });var r = t.scrollLock = "\n  html {\n    width: 100%;\n    height: 100%;\n    overflow: hidden;\n  }\n  html body {\n    width: 100%;\n    height: 100%;\n    overflow: visible;\n    position: fixed;\n  }\n",
         o = t.pageFrame = { zIndex: 9999, position: "fixed", right: 0, bottom: 0, left: 0, top: 0, overflow: "hidden", WebkitTransform: "translate3d(0, 0, 0)", transform: "translate3d(0, 0, 0)", display: "none" },
-        a = t.iframe = { border: 0, margin: 0, padding: 0, width: "100%", height: "100%" };t.default = { scrollLock: r, pageFrame: o, iframe: a };
+        i = t.iframe = { border: 0, margin: 0, padding: 0, width: "100%", height: "100%" };t.default = { scrollLock: r, pageFrame: o, iframe: i };
   }, function (e, t, n) {
     "use strict";
     function r(e) {
       return e && e.__esModule ? e : { default: e };
     }function o(e, t) {
       if (!(e instanceof t)) throw new TypeError("Cannot call a class as a function");
-    }function a(e, t) {
-      if (!e) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return !t || "object" != (typeof t === "undefined" ? "undefined" : _typeof(t)) && "function" != typeof t ? e : t;
     }function i(e, t) {
+      if (!e) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return !t || "object" != (typeof t === "undefined" ? "undefined" : _typeof(t)) && "function" != typeof t ? e : t;
+    }function a(e, t) {
       if ("function" != typeof t && null !== t) throw new TypeError("Super expression must either be null or a function, not " + (typeof t === "undefined" ? "undefined" : _typeof(t)));e.prototype = Object.create(t && t.prototype, { constructor: { value: e, enumerable: !1, writable: !0, configurable: !0 } }), t && (Object.setPrototypeOf ? Object.setPrototypeOf(e, t) : e.__proto__ = t);
     }Object.defineProperty(t, "__esModule", { value: !0 });var u = function () {
       function e(e, t) {
@@ -1271,8 +1271,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     },
         g = function (e) {
       function t(e) {
-        o(this, t);var n = a(this, (t.__proto__ || Object.getPrototypeOf(t)).call(this, e));n.onMessage = n.onMessage.bind(n), n.onCancelled = n.onCancelled.bind(n), (0, y.lockScrolling)();var r = (0, y.filterProps)(n.props, m);return n.url = b(r, n.props.production), n.origin = (0, y.getBaseUrl)(n.url), n.state = { visible: !0 }, n;
-      }return i(t, e), u(t, [{ key: "onMessage", value: function value(e) {
+        o(this, t);var n = i(this, (t.__proto__ || Object.getPrototypeOf(t)).call(this, e));n.onMessage = n.onMessage.bind(n), n.onCancelled = n.onCancelled.bind(n), (0, y.lockScrolling)();var r = (0, y.filterProps)(n.props, m);return n.url = b(r, n.props.production), n.origin = (0, y.getBaseUrl)(n.url), n.state = { visible: !0 }, n;
+      }return a(t, e), u(t, [{ key: "onMessage", value: function value(e) {
           if (e.origin === this.origin) return "cancel" === e.data ? this.onCancelled() : "frameReady" === e.data ? this.props.onLoaded() : v(e) ? this.props.onError(e.data) : void 0;
         } }, { key: "onCancelled", value: function value() {
           this.setState({ visible: !1 }), (0, y.releaseLock)(), this.props.onCancelled();
@@ -1292,7 +1292,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
           n[t] = e[t];
         }return n;
       }return Array.from(e);
-    }Object.defineProperty(t, "__esModule", { value: !0 }), t.releaseLock = t.lockScrolling = t.getBaseUrl = t.toUrlParams = t.set = t.filterProps = void 0;var o = Object.assign || function (e) {
+    }Object.defineProperty(t, "__esModule", { value: !0 }), t.releaseLock = t.lockScrolling = t.getBaseUrl = t.toUrlParams = t.set = t.filterProps = void 0;var o = "function" == typeof Symbol && "symbol" == _typeof(Symbol.iterator) ? function (e) {
+      return typeof e === "undefined" ? "undefined" : _typeof(e);
+    } : function (e) {
+      return e && "function" == typeof Symbol && e.constructor === Symbol && e !== Symbol.prototype ? "symbol" : typeof e === "undefined" ? "undefined" : _typeof(e);
+    },
+        i = Object.assign || function (e) {
       for (var t = 1; t < arguments.length; t++) {
         var n = arguments[t];for (var r in n) {
           Object.prototype.hasOwnProperty.call(n, r) && (e[r] = n[r]);
@@ -1300,24 +1305,24 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
       }return e;
     },
         a = n(2),
-        i = function (e) {
+        u = function (e) {
       return e && e.__esModule ? e : { default: e };
     }(a);t.filterProps = function (e, t) {
-      var n = o({}, e);return t.forEach(function (e) {
+      var n = i({}, e);return t.forEach(function (e) {
         return delete n[e];
       }), n;
     }, t.set = function (e, t, n) {
       return e[t] = n, e;
     }, t.toUrlParams = function (e) {
       return Object.keys(e).reduce(function (t, n) {
-        var o = e[n];return Array.isArray(o) ? [].concat(r(t), r(o.map(function (e) {
+        var i = e[n];return Array.isArray(i) ? [].concat(r(t), r(i.map(function (e) {
           return n + "=" + encodeURIComponent(e);
-        }))) : [].concat(r(t), [n + "=" + encodeURIComponent(o)]);
+        }))) : null !== i && "object" === (void 0 === i ? "undefined" : o(i)) ? [].concat(r(t), [n + "=" + encodeURIComponent(JSON.stringify(i))]) : [].concat(r(t), [n + "=" + encodeURIComponent(i)]);
       }, []).join("&");
     }, t.getBaseUrl = function (e) {
       var t = e.split("/");return t[0] + "//" + t[2];
     }, t.lockScrolling = function () {
-      var e = document.createElement("style");e.innerHTML = i.default.scrollLock, e.id = "scroll-lock", document.getElementsByTagName("head")[0].appendChild(e);
+      var e = document.createElement("style");e.innerHTML = u.default.scrollLock, e.id = "scroll-lock", document.getElementsByTagName("head")[0].appendChild(e);
     }, t.releaseLock = function () {
       var e = document.getElementById("scroll-lock");e && (e.outerHTML = "");
     };
@@ -1326,18 +1331,18 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     function r(e) {
       return e && e.__esModule ? e : { default: e };
     }Object.defineProperty(t, "__esModule", { value: !0 }), t.withLightBox = t.LightBoxHoc = void 0;var o = n(3),
-        a = r(o),
-        i = n(6),
-        u = r(i);a.default.Hoc = u.default, t.LightBoxHoc = u.default, t.withLightBox = u.default, t.default = a.default;
+        i = r(o),
+        a = n(6),
+        u = r(a);i.default.Hoc = u.default, t.LightBoxHoc = u.default, t.withLightBox = u.default, t.default = i.default;
   }, function (e, t, n) {
     "use strict";
     function r(e) {
       return e && e.__esModule ? e : { default: e };
     }function o(e, t) {
       if (!(e instanceof t)) throw new TypeError("Cannot call a class as a function");
-    }function a(e, t) {
-      if (!e) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return !t || "object" != (typeof t === "undefined" ? "undefined" : _typeof(t)) && "function" != typeof t ? e : t;
     }function i(e, t) {
+      if (!e) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return !t || "object" != (typeof t === "undefined" ? "undefined" : _typeof(t)) && "function" != typeof t ? e : t;
+    }function a(e, t) {
       if ("function" != typeof t && null !== t) throw new TypeError("Super expression must either be null or a function, not " + (typeof t === "undefined" ? "undefined" : _typeof(t)));e.prototype = Object.create(t && t.prototype, { constructor: { value: e, enumerable: !1, writable: !0, configurable: !0 } }), t && (Object.setPrototypeOf ? Object.setPrototypeOf(e, t) : e.__proto__ = t);
     }Object.defineProperty(t, "__esModule", { value: !0 });var u = Object.assign || function (e) {
       for (var t = 1; t < arguments.length; t++) {
@@ -1369,8 +1374,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         v = function v(e) {
       return function (t) {
         function n(e) {
-          o(this, n);var t = a(this, (n.__proto__ || Object.getPrototypeOf(n)).call(this, e));return t.load = t.load.bind(t), t.show = t.show.bind(t), t.on = t.on.bind(t), t.onLoaded = t.onLoaded.bind(t), t.onCancelled = t.onCancelled.bind(t), t.onError = t.onError.bind(t), t.config = {}, t.state = u({}, b, { load: t.load, show: t.show, on: t.on }), t.listeners = { cancelled: [], error: [], loaded: [] }, t;
-        }return i(n, t), l(n, [{ key: "onCancelled", value: function value() {
+          o(this, n);var t = i(this, (n.__proto__ || Object.getPrototypeOf(n)).call(this, e));return t.load = t.load.bind(t), t.show = t.show.bind(t), t.on = t.on.bind(t), t.onLoaded = t.onLoaded.bind(t), t.onCancelled = t.onCancelled.bind(t), t.onError = t.onError.bind(t), t.config = {}, t.state = u({}, b, { load: t.load, show: t.show, on: t.on }), t.listeners = { cancelled: [], error: [], loaded: [] }, t;
+        }return a(n, t), l(n, [{ key: "onCancelled", value: function value() {
             this.listeners.cancelled.forEach(function (e) {
               return e();
             }), this.setState(u({}, b, { cancelled: !0 }));
@@ -1402,13 +1407,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     function r(e) {
       return e && e.__esModule ? e : { default: e };
     }Object.defineProperty(t, "__esModule", { value: !0 });var o = n(1),
-        a = r(o),
-        i = n(0),
-        u = r(i),
+        i = r(o),
+        a = n(0),
+        u = r(a),
         l = n(2),
         s = r(l),
         c = function c(e) {
-      return a.default.createElement("iframe", { src: e.url, style: s.default.iframe, id: "datatransPaymentFrame", name: "datatransPaymentFrame", frameBorder: 0 });
+      return i.default.createElement("iframe", { src: e.url, style: s.default.iframe, id: "datatransPaymentFrame", name: "datatransPaymentFrame", frameBorder: 0 });
     };c.propTypes = { url: u.default.string.isRequired }, t.default = c;
   }, function (e, t, n) {
     "use strict";
@@ -1421,8 +1426,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         }
       }return e;
     },
-        a = n(1),
-        i = r(a),
+        i = n(1),
+        a = r(i),
         u = n(0),
         l = r(u),
         s = n(7),
@@ -1430,7 +1435,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         f = n(2),
         d = r(f),
         p = function p(e) {
-      var t = e.showsPaymentPage ? o({}, d.default.pageFrame, { display: "block" }) : d.default.pageFrame;return i.default.createElement("div", { style: t }, i.default.createElement(c.default, { url: e.url }));
+      var t = e.showsPaymentPage ? o({}, d.default.pageFrame, { display: "block" }) : d.default.pageFrame;return a.default.createElement("div", { style: t }, a.default.createElement(c.default, { url: e.url }));
     };p.propTypes = { url: l.default.string.isRequired, showsPaymentPage: l.default.bool.isRequired }, t.default = p;
   }, function (e, t, n) {
     "use strict";
@@ -1445,10 +1450,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     }, e.exports = o;
   }, function (e, t, n) {
     "use strict";
-    function r(e, t, n, r, a, i, u, l) {
+    function r(e, t, n, r, i, a, u, l) {
       if (o(t), !e) {
         var s;if (void 0 === t) s = new Error("Minified exception occurred; use the non-minified dev environment for the full error message and additional helpful warnings.");else {
-          var c = [n, r, a, i, u, l],
+          var c = [n, r, i, a, u, l],
               f = 0;s = new Error(t.replace(/%s/g, function () {
             return c[f++];
           })), s.name = "Invariant Violation";
@@ -1459,9 +1464,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     "use strict";
     var r = n(9),
         o = n(10),
-        a = n(12);e.exports = function () {
-      function e(e, t, n, r, i, u) {
-        u !== a && o(!1, "Calling PropTypes validators directly is not supported by the `prop-types` package. Use PropTypes.checkPropTypes() to call them. Read more at http://fb.me/use-check-prop-types");
+        i = n(12);e.exports = function () {
+      function e(e, t, n, r, a, u) {
+        u !== i && o(!1, "Calling PropTypes validators directly is not supported by the `prop-types` package. Use PropTypes.checkPropTypes() to call them. Read more at http://fb.me/use-check-prop-types");
       }function t() {
         return e;
       }e.isRequired = e;var n = { array: e, bool: e, func: e, number: e, object: e, string: e, symbol: e, any: e, arrayOf: t, element: e, instanceOf: t, node: e, objectOf: t, oneOf: t, oneOfType: t, shape: t, exact: t };return n.checkPropTypes = r, n.PropTypes = n, n;
@@ -8053,7 +8058,10 @@ var config = {
   currency: 'CHF',
   sign: 'adsadf',
   production: false,
-  paymentmethod: ['ECA', 'VIS', 'AMX']
+  paymentmethod: ['ECA', 'VIS', 'AMX'],
+  themeConfiguration: {
+    brandColor: '#aa9374'
+  }
 };
 
 var App = function (_Component) {

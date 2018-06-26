@@ -9,6 +9,9 @@ const config = {
   sign: 'adsadf',
   production: false,
   paymentmethod: ['ECA', 'VIS', 'AMX'],
+  themeConfiguration: {
+    brandColor: '#aa9374'
+  }
 }
 
 export default class App extends Component {
