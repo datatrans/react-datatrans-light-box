@@ -1,7 +1,7 @@
 {
   "name": "react-datatrans-light-box",
-  "version": "1.0.9",
-  "description": "Datatrans light box component for react apps",
+  "version": "2.0.0",
+  "description": "Datatrans Lightbox component for React apps",
   "main": "lib/main.js",
   "keywords": [
     "react",
@@ -13,14 +13,16 @@
     "url": "git+https://github.com/datatrans/react-datatrans-light-box.git"
   },
   "homepage": "https://www.datatrans.ch",
-  "email": "kolja.kirchner@datatrans.ch",
+  "email": "support@datatrans.ch",
   "author": "Datatrans AG",
   "license": "MIT",
   "scripts": {
     "test": "npm run lint && npm run build",
     "build": "NODE_ENV=production webpack --color --progress",
     "watch": "NODE_ENV=production webpack --color --progress --watch",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "example:build": "cd example; NODE_ENV=production webpack --color --progress",
+    "example:watch": "cd example; NODE_ENV=development webpack --color --progress --watch"
   },
   "peerDependencies": {
     "react": "^15.0.0 || ^16.0.0-0"
@@ -48,7 +50,10 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^3.0.1",
     "eslint-plugin-react": "^6.8.0",
+    "html-webpack-plugin": "^3.2.0",
     "prop-types": "^15.6.0",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
     "webpack": "^2.3.2"
   }
 }
