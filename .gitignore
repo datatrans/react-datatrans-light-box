@@ -1,6 +1,7 @@
 # Don't check auto-generated stuff into git
 coverage
 build
+example/lib
 node_modules
 stats.json
 merchants.json

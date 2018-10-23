@@ -10,7 +10,6 @@ module.exports = {
         loader: 'babel-loader'
       }
     ]
-
   },
   entry: {
     main: ['./src/index.js'],
@@ -23,7 +22,6 @@ module.exports = {
       filename: 'app.html',
     })
   ],
-
   output: {
     path: path.resolve(__dirname, 'lib'),
     filename: '[name].js'

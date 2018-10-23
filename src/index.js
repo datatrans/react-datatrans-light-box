@@ -1,7 +1,3 @@
-import LightBox from './LightBox'
-import LightBoxHoc from './LightBoxHoc'
+import Lightbox from './Lightbox'
 
-LightBox.Hoc = LightBoxHoc
-
-export {LightBoxHoc, LightBoxHoc as withLightBox}
-export default LightBox
+export default Lightbox

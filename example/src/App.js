@@ -1,93 +1,67 @@
 import React, { Component } from 'react'
-import LightBox from 'react-datatrans-light-box'
+import Lightbox from '../../src'
 
 const config = {
   merchantId: '1100004624',
-  refno: '11000asdfasdf4624',
+  refno: 'YOUR_REFERENCE_NUMBER',
   amount: '1000',
   currency: 'CHF',
-  sign: 'adsadf',
+  sign: '30916165706580013',
   production: false,
-  paymentmethod: ['ECA', 'VIS', 'AMX'],
+  paymentmethod: ['ECA', 'VIS', 'PFC', 'AMX', 'TWI'],
   themeConfiguration: {
     brandColor: '#aa9374'
   }
 }
 
 export default class App extends Component {
-  render() {
-    return <div>
-      <LightBoxApproach />
-      <LightBoxHocApproach />
-    </div>
-  }
-}
-
-class LightBoxApproach extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      showsLightBox: false,
+      showLightbox: false
     }
+
     this.start = this.start.bind(this)
   }
 
   start() {
-    this.setState({showsLightBox: true})
+    this.setState({ showLightbox: true })
   }
 
   render() {
     return <div>
-      <h1> Test LightBox Approach </h1>
+      <h1>Datatrans Lightbox Demo</h1>
       <div>
-        { this.state.showsLightBox
-          ? 'LightBox is rendered and cannot be reused.'
-          : <button onClick={this.start}> start lightbox </button>
+        {this.state.showLightbox
+          ? 'Lightbox was rendered and cannot be reused.'
+          : <button onClick={this.start}>Start Lightbox</button>
         }
 
-        { this.state.showsLightBox && <LightBox {...config} /> }
-
-        { this.state.error && <div>{JSON.stringify(this.state.error)}</div> }
+        {this.state.showLightbox &&
+          <Lightbox
+            {...config}
+            onLoaded={this.onLoaded}
+            onOpened={this.onOpened}
+            onCancelled={this.onCancelled}
+            onError={this.onError} />
+          }
       </div>
     </div>
   }
-}
 
-
-class LightBoxHocApproachBase extends Component {
-
-  constructor(props) {
-    super(props)
-
-    props.lightBox.on('cancelled', () => this.setState({cancelled: true}))
-    props.lightBox.on('error', (error) => this.setState({error}))
-    props.lightBox.on('loaded', () => {
-      this.setState({loaded: true})
-    })
+  onLoaded() {
+    console.log('Loaded')
   }
 
-  render() {
-    const {lightBox} = this.props
-
-    return <div>
-      <h1> Test LightBoxHoc Apprach </h1>
-      <div> props.lightBox: </div>
-      <pre> {JSON.stringify(lightBox, null, 2)} </pre>
-
-      {lightBox.loaded && <button onClick={lightBox.show}>
-        show payment page
-      </button>}
-
-      <button onClick={() => lightBox.load(config)}>
-        load lightbox with HOC
-      </button>
-    </div>
+  onOpened() {
+    console.log('Opened')
   }
 
-}
+  onCancelled() {
+    console.log('Cancelled')
+  }
 
-LightBoxHocApproachBase.propTypes = {
-  lightBox: LightBox.Hoc.propType,
+  onError(data) {
+    console.log('Error:', data)
+  }
 }
-
-const LightBoxHocApproach = LightBox.Hoc(LightBoxHocApproachBase)
