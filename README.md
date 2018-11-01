@@ -25,7 +25,7 @@ const config = {
   currency: 'CHF',
   sign: '30916165706580013',
   production: false,
-  paymentmethod: ['ECA', 'VIS', 'PFC', 'TWI'],
+  paymentmethod: ['ECA', 'VIS', 'PFC', 'AMX', 'TWI'],
   themeConfiguration: {
     brandColor: '#aa9374'
   }
@@ -34,15 +34,10 @@ const config = {
 export default class App extends Component {
   constructor(props) {
     super(props)
+
     this.state = {
       showLightbox: false
     }
-
-    this.start = this.start.bind(this)
-  }
-
-  start() {
-    this.setState({ showLightbox: true })
   }
 
   render() {
@@ -50,39 +45,42 @@ export default class App extends Component {
       <h1>Datatrans Lightbox Demo</h1>
       <div>
         {this.state.showLightbox
-          ? 'Lightbox was rendered and cannot be reused.'
+          ? <Lightbox
+              {...config}
+              onLoaded={this.onLoaded}
+              onOpened={this.onOpened}
+              onCancelled={this.onCancelled}
+              onError={this.onError}
+            />
           : <button onClick={this.start}>Start Lightbox</button>
         }
-
-        {this.state.showLightbox &&
-          <Lightbox
-            {...config}
-            onLoaded={this.onLoaded}
-            onOpened={this.onOpened}
-            onCancelled={this.onCancelled}
-            onError={this.onError} />
-          }
       </div>
+
     </div>
   }
 
-  onLoaded() {
+  start = () => {
+    this.setState({ showLightbox: true })
+  }
+
+  onLoaded = () => {
     console.log('Loaded')
   }
 
-  onOpened() {
+  onOpened = () => {
     console.log('Opened')
   }
 
-  onCancelled() {
+  onCancelled = () => {
     console.log('Cancelled')
+    this.setState({ showLightbox: false })
   }
 
-  onError(data) {
+  onError = (data) => {
     console.log('Error:', data)
+    this.setState({ showLightbox: false })
   }
 }
-
 ```
 
 ## Properties
