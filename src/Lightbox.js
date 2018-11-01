@@ -18,15 +18,13 @@ const startPayment = (props) => {
     closed: props.onCancelled,
     error: props.onError
   }
-  console.log(config)
   window.Datatrans.startPayment(config)
 }
-
 export default class Lightbox extends Component {
   componentDidMount() {
     const scriptSource = getUrl(this.props.production)
 
-    if (!document.querySelectorAll('script[src="' + scriptSource + '"]')) {
+    if (document.querySelector('script[src="' + scriptSource + '"]')) {
       startPayment(this.props)
 
       return
@@ -39,6 +37,17 @@ export default class Lightbox extends Component {
     }
 
     document.body.appendChild(script)
+  }
+
+  componentWillUnmount() {
+    // make sure to always clean things up
+    if (window.Datatrans) {
+      window.setTimeout(() => {
+        try {
+          window.Datatrans.close()
+        } catch (err) {} // eslint-disable-line no-empty
+      }, 1)
+    }
   }
 
   render() {
