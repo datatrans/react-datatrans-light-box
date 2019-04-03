@@ -106,7 +106,7 @@ Name | Type | Description
 |`onOpened` | Function | Called when payment page is opened.|
 |`onCancelled` | Function | Called when user has cancelled payment.|
 |`onError` | Function | Called when there was an error loading the payment page.|
-|and many more... | | Refer to this [PDF](https://pilot.datatrans.biz/showcase/doc/Technical_Implementation_Guide.pdf) to get the full list of supported parameters.|
+|and many more... | | Refer to our [DOCS](https://docs.datatrans.ch/docs) to get the full list of supported parameters.|
 
 [npm-url]: https://npmjs.com/package/react-datatrans-light-box
 [npm-version-image]: https://img.shields.io/npm/v/react-datatrans-light-box.svg?style=flat-square
