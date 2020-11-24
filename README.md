@@ -61,11 +61,7 @@ The Lightbox component takes the following properties as input.
 
 Name | Type | Description
 -----|------|-----|
-`merchantId` | String | Merchant identifier provided to you by Datatrans.
-`refno` | String | Any value by which you would like to reference the payment.|
-`amount` | String |The amount in cents you would like to charge your customer.|
-`currency` | String | The type of currency that will be used for the payment.|
-`sign` | String | Transaction security parameter. Find it in Datatrans' [Webadmin Tool](https://payment.datatrans.biz/). |
+`transactionId` | String | Transaction ID returned by ' [Initializing Transactions](https://docs.datatrans.ch/docs/redirect-lightbox#section-initializing-transactions). |
 
 ### Optional
 
@@ -76,7 +72,6 @@ Name | Type | Description
 |`onOpened` | Function | Called when payment page is opened.|
 |`onCancelled` | Function | Called when user has cancelled payment.|
 |`onError` | Function | Called when there was an error loading the payment page.|
-|and many more... | | Refer to our [DOCS](https://docs.datatrans.ch/docs) to get the full list of supported parameters.|
 
 [npm-url]: https://npmjs.com/package/react-datatrans-light-box
 [npm-version-image]: https://img.shields.io/npm/v/react-datatrans-light-box.svg?style=flat-square

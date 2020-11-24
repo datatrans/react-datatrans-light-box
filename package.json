@@ -20,9 +20,7 @@
     "test": "npm run lint && npm run build",
     "build": "NODE_ENV=production webpack --color --progress",
     "watch": "NODE_ENV=production webpack --color --progress --watch",
-    "lint": "eslint .",
-    "example:build": "cd example; NODE_ENV=production webpack --color --progress",
-    "example:watch": "cd example; NODE_ENV=development webpack --color --progress --watch"
+    "lint": "eslint ."
   },
   "peerDependencies": {
     "react": "^16.8.0"
