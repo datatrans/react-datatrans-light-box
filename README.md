@@ -10,6 +10,10 @@ React is defined as a peer dependency and expected to be made available by your 
 ```bash
 npm install react-datatrans-light-box
 ```
+### Install legacy
+```bash
+npm install react-datatrans-light-box@2
+```
 
 ## Example Usage of Lightbox component
 You can also use a more direct approach and display the Lightbox component whenever or whereever you like.
