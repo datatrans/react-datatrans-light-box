@@ -2,15 +2,13 @@ import React, { Component } from 'react'
 import Lightbox from '../../src'
 
 const config = {
-  merchantId: '1100004624',
-  refno: 'YOUR_REFERENCE_NUMBER',
-  amount: '1000',
   currency: 'CHF',
-  sign: '30916165706580013',
-  production: false,
-  paymentmethod: ['ECA', 'VIS', 'PFC', 'AMX', 'TWI'],
-  themeConfiguration: {
-    brandColor: '#aa9374'
+  refno: 'cK1lO9XLv',
+  amount: 1337,
+  redirect: {
+    successUrl: 'https://pay.sandbox.datatrans.com/upp/merchant/successPage.jsp',
+    cancelUrl: 'https://pay.sandbox.datatrans.com/upp/merchant/cancelPage.jsp',
+    errorUrl: 'https://pay.sandbox.datatrans.com/upp/merchant/errorPage.jsp'
   }
 }
 
@@ -19,23 +17,30 @@ export default class App extends Component {
     super(props)
 
     this.state = {
-      showLightbox: false
+      showLightbox: false,
+      transactionId: false
     }
   }
 
-  render() {
+  componentDidMount () {
+    this.initializeTransaction('https://api.sandbox.datatrans.com/v1/transactions', config)
+  }
+
+  render () {
+    const { transactionId, showLightbox } = this.state
     return <div>
       <h1>Datatrans Lightbox Demo</h1>
       <div>
-        {this.state.showLightbox
+        {showLightbox
           ? <Lightbox
-              {...config}
+              transactionId={transactionId}
+              production={false /* Default: false */}
               onLoaded={this.onLoaded}
               onOpened={this.onOpened}
               onCancelled={this.onCancelled}
               onError={this.onError}
             />
-          : <button onClick={this.start}>Start Lightbox</button>
+          : <button onClick={this.start} disabled={!transactionId}>Start Lightbox</button>
         }
       </div>
 
@@ -62,5 +67,29 @@ export default class App extends Component {
   onError = (data) => {
     console.log('Error:', data)
     this.setState({ showLightbox: false })
+  }
+
+  /*
+   * WARNING !!!
+   * Initialize Transaction via CORS
+   * You have to do this part on your server.
+   * Don't call our init endpoint from the client side.
+   * It won't work (CORS). It only works from the browser for this demo.
+   */
+  initializeTransaction = (url = '', data = {}) => {
+    try {
+      fetch(url, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json;charset=utf-8',
+            Authorization: 'Basic MTEwMDAyNTgzNTozY29mTjNNeFhhQkg3VWw4'
+          },
+          body: JSON.stringify(data)
+      })
+        .then(data => this.setState({ transactionId: data.transactionId }))
+        .catch(err => this.setState({ transactionId: '201124010951422089' }))
+    } catch (error) {
+      console.log(error)
+    }
   }
 }

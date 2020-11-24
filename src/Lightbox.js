@@ -1,25 +1,16 @@
 import { Component } from 'react'
 import PropTypes from 'prop-types'
-import { filterProps, convertArrays } from './utils'
-
-const PARAMS_BLACKLIST = [
-  'production', 'onLoaded', 'onOpened', 'onCancelled', 'onError', 'version'
-]
 
 const getUrl = (production) => production
   ? 'https://pay.datatrans.com/upp/payment/js/datatrans-2.0.0.min.js'
   : 'https://pay.sandbox.datatrans.com/upp/payment/js/datatrans-2.0.0.min.js'
 
-const startPayment = (props) => {
-  const config = {
-    params: convertArrays(filterProps(props, PARAMS_BLACKLIST)),
-    loaded: props.onLoaded,
-    opened: props.onOpened,
-    closed: props.onCancelled,
-    error: props.onError
-  }
-  window.Datatrans.startPayment(config)
+const startPayment = ({ transactionId }) => {
+  window.Datatrans.startPayment({
+    transactionId
+  })
 }
+
 export default class Lightbox extends Component {
   componentDidMount() {
     const scriptSource = getUrl(this.props.production)
@@ -56,11 +47,7 @@ export default class Lightbox extends Component {
 }
 
 Lightbox.propTypes = {
-  merchantId: PropTypes.string.isRequired,
-  refno: PropTypes.string.isRequired,
-  amount: PropTypes.string.isRequired,
-  currency: PropTypes.string.isRequired,
-  sign: PropTypes.string.isRequired,
+  transactionId: PropTypes.string.isRequired,
 
   production: PropTypes.bool,
 
