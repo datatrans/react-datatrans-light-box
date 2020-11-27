@@ -22,7 +22,11 @@ export default () => {
     showLightbox(false)
   }
 
-  useEffect(() => setBasicAuth(window.btoa(`${merchantId}:${password}`)), [merchantId, password]);
+  useEffect(() => {
+    if (merchantId && password) {
+      setBasicAuth(window.btoa(`${merchantId}:${password}`))
+    }
+  }, [merchantId, password]);
 
   return <div>
     <h1 style={{ fontFamily: 'Helvetica, sans-serif', fontWeight: 300 }}>Datatrans Lightbox Demo</h1>
