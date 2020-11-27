@@ -60,7 +60,7 @@ export default () => {
             --data-raw '{JSON.stringify({
                 currency: 'CHF',
                 refno: 'react-light-box',
-                amount: amount,
+                amount: parseInt(amount, 10),
               }, null, ' ')}'
           </pre>
         </code>
