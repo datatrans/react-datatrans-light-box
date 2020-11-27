@@ -43,7 +43,7 @@ const Lightbox = (props) => {
     document.body.appendChild(script)
 
     return cleanupLightbox
-  })
+  }, [])
 
   return null
 }

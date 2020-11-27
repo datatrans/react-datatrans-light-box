@@ -76,7 +76,7 @@ export default () => {
       </div>
       {lightbox && <Lightbox
           transactionId={transactionId}
-          production={false /* Default: false */}
+          production={false}
           onLoaded={onLoaded}
           onOpened={onOpened}
           onCancelled={onCancelled}
