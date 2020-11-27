@@ -5,6 +5,11 @@
 Official Datatrans light box library for showing our payment page in React applications.
 React is defined as a peer dependency and expected to be made available by your project. Other than that this library is completely dependency-free.
 
+## Version 3
+This package version requires version 1 of our [JSON API](https://api-reference.datatrans.ch/#tag/v1transactions)
+
+If you are still useing our old setup, please refer to [react-datatrans-light-box version 2](https://github.com/datatrans/react-datatrans-light-box/tree/2.0.2)
+
 ## How to install
 
 ```bash
