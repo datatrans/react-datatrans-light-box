@@ -1,66 +1,57 @@
-import { Component } from 'react'
+import { useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { filterProps, convertArrays } from './utils'
-
-const PARAMS_BLACKLIST = [
-  'production', 'onLoaded', 'onOpened', 'onCancelled', 'onError', 'version'
-]
 
 const getUrl = (production) => production
   ? 'https://pay.datatrans.com/upp/payment/js/datatrans-2.0.0.min.js'
   : 'https://pay.sandbox.datatrans.com/upp/payment/js/datatrans-2.0.0.min.js'
 
 const startPayment = (props) => {
-  const config = {
-    params: convertArrays(filterProps(props, PARAMS_BLACKLIST)),
+  window.Datatrans.startPayment({
+    transactionId: props.transactionId,
     loaded: props.onLoaded,
     opened: props.onOpened,
     closed: props.onCancelled,
     error: props.onError
-  }
-  window.Datatrans.startPayment(config)
+  })
 }
-export default class Lightbox extends Component {
-  componentDidMount() {
-    const scriptSource = getUrl(this.props.production)
+
+const cleanupLightbox = () => {
+  if (window.Datatrans) {
+    try {
+      window.Datatrans.close()
+    } catch (err) {} // eslint-disable-line no-empty
+  }
+}
+
+const Lightbox = (props) => {
+  useEffect(() => {
+    const { production } = props
+    const scriptSource = getUrl(production)
 
     if (document.querySelector('script[src="' + scriptSource + '"]')) {
-      startPayment(this.props)
+      startPayment(props)
 
-      return
+      return cleanupLightbox
     }
 
     const script = document.createElement('script')
     script.src = scriptSource
     script.onload = () => {
-      startPayment(this.props)
+      startPayment(props)
     }
 
     document.body.appendChild(script)
-  }
 
-  componentWillUnmount() {
-    // make sure to always clean things up
-    if (window.Datatrans) {
-      window.setTimeout(() => {
-        try {
-          window.Datatrans.close()
-        } catch (err) {} // eslint-disable-line no-empty
-      }, 1)
-    }
-  }
+    return cleanupLightbox
+  }, [])
 
-  render() {
-    return null
-  }
+  return null
 }
 
+export default Lightbox
+
 Lightbox.propTypes = {
-  merchantId: PropTypes.string.isRequired,
-  refno: PropTypes.string.isRequired,
-  amount: PropTypes.string.isRequired,
-  currency: PropTypes.string.isRequired,
-  sign: PropTypes.string.isRequired,
+  transactionId: PropTypes.string.isRequired,
 
   production: PropTypes.bool,
 

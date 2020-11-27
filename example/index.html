@@ -1,0 +1,65 @@
+
+<html>
+  <body style="margin: 0;">
+    <nav
+      style="
+        text-align: center;
+        background: #213d62;
+        padding: 10px;
+        min-height: 20px;
+        margin-bottom: 40px;
+      "></nav>
+    <div id="app" style="padding: 0 40px;"></div>
+    <script src="./index.js"></script>
+    <style>
+      h1 {
+        padding: 0 0 10px;
+        font: bold 24px/26px Arial, Helvetica, sans-serif;
+        color: #213d62;
+      }
+      h2 {
+        padding: 0 0 8px;
+        font: bold 18px/22px Arial, Helvetica, sans-serif;
+        color: #213d62;
+      }
+      p {
+        font: 14px/16px Arial, Helvetica, sans-serif;
+      }
+      pre {
+        background-color: #f3f3f3;
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+      label {
+        display: block;
+        width: 500px;
+        min-height: 25px;
+      }
+      input {
+        float: right;
+      }
+      button {
+        color: #fff;
+        background-color: #0ecc77;
+        border: 1px solid transparent;
+        border-radius: 3px;
+        padding: 10px 15px;
+      }
+      .loader:before {
+        content: "";
+        position: absolute;
+        border: 3px solid #f3f3f3; /* Light grey */
+        border-top: 3px solid #213d62; /* Blue */
+        border-radius: 50%;
+        width: 16px;
+        height: 16px;
+        animation: spin 2s linear infinite;
+      }
+
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    </style>
+  </body>
+</html>

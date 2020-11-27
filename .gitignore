@@ -1,6 +1,7 @@
 # Don't check auto-generated stuff into git
 coverage
 build
+dist
 example/lib
 node_modules
 stats.json
@@ -36,3 +37,4 @@ npm-debug.log
 
 #
 .sass-cache
+./cache
