@@ -66,13 +66,15 @@ export default () => {
           </pre>
         </code>
         <h2>Step 3:</h2>
-        <p>Copy the transactionId from the call above:<br/>Please note that a transactionId is only valid htmlFor 30 minutes.</p>
+        <p>Copy the transactionId from the call above:<br/>Please note that a transactionId is only valid for 30 minutes.</p>
         <label htmlFor='transactionId'>
           Transaction ID
           <input id='transactionId' type='text' value={transactionId} onChange={(e) => setTransactionId(e.target.value)} />
         </label>
-        {!loading && <button onClick={onClick} disabled={!transactionId}>Start Lightbox</button>}
-        {loading && <span className='loader'></span>}
+        {loading
+          ? <span className='loader' />
+          : <button onClick={onClick} disabled={!transactionId}>Start Lightbox</button>
+        }
       </div>
       {lightbox && <Lightbox
           transactionId={transactionId}
