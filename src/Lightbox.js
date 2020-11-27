@@ -17,11 +17,9 @@ const startPayment = (props) => {
 
 const cleanupLightbox = () => {
   if (window.Datatrans) {
-    window.setTimeout(() => {
-      try {
-        window.Datatrans.close()
-      } catch (err) {} // eslint-disable-line no-empty
-    }, 1)
+    try {
+      window.Datatrans.close()
+    } catch (err) {} // eslint-disable-line no-empty
   }
 }
 

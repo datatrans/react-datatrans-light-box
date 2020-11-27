@@ -33,7 +33,7 @@ export default () => {
     <h1 style={{ fontFamily: 'Helvetica, sans-serif', fontWeight: 300 }}>Datatrans Lightbox Demo</h1>
       <div>
         <h2>Step 1:</h2>
-        <p>Fill in your basicAuth to complete the code example below:<br/>
+        <p>Fill in your authentication data to complete the code example below:<br/>
           <small><a href="https://api-reference.datatrans.ch/#section/Authentication">Documentation: Authentication</a></small>
         </p>
 

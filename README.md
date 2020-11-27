@@ -1,35 +1,36 @@
 [![NPM version][npm-version-image]][npm-url] [![Build Status](https://circleci.com/gh/datatrans/react-datatrans-light-box.png?circle-token=:circle-token)](https://circleci.com/gh/datatrans/react-datatrans-light-box)
 
-# react-datatrans-light-box
+# Datatrans React Light Box
 
 Official Datatrans light box library for showing our payment page in React applications.
 React is defined as a peer dependency and expected to be made available by your project. Other than that this library is completely dependency-free.
 
-## Version 3
-This package version requires version 1 of our [JSON API](https://api-reference.datatrans.ch/#tag/v1transactions)
+## Compatibility
 
-If you are still useing our old setup, please refer to [react-datatrans-light-box version 2](https://github.com/datatrans/react-datatrans-light-box/tree/2.0.2)
+Beginning with v3.0.0, this component is using the [Datatrans Payment JSON API](https://api-reference.datatrans.ch/#tag/v1transactions).
+
+If you're still using the legacy XML API, please refer to [react-datatrans-light-box v2.0.2](https://github.com/datatrans/react-datatrans-light-box/tree/2.0.2).
 
 ## How to install
 
-```bash
+```sh
+# Use with current JSON API
 npm install react-datatrans-light-box
-```
-### Install legacy
-```bash
+
+# Use with legacy XML API (supported by react-datatrans-light-box <= 2.x)
 npm install react-datatrans-light-box@2
 ```
 
-## Example Usage of Lightbox component
-You can also use a more direct approach and display the Lightbox component whenever or whereever you like.
+## Example usage
 
-```javascript
+```js
 import React, { useState } from 'react'
 import Lightbox from 'react-datatrans-light-box'
 
-export default () => {
+export default (props) => {
+  const { transactionId } = props
+
   const [lightbox, showLightbox] = useState(false)
-  const [transactionId, setTransactionId] = useState(false)
 
   const onLoaded = () => console.log('Loaded')
   const onOpened = () => console.log('Opened')
@@ -62,21 +63,14 @@ export default () => {
 
 The Lightbox component takes the following properties as input.
 
-### Mandatory
-
-Name | Type | Description
------|------|-----|
-`transactionId` | String | Transaction ID returned by ' [Initializing Transactions](https://docs.datatrans.ch/docs/redirect-lightbox#section-initializing-transactions). |
-
-### Optional
-
-|Name  | Type   |Description |
-|----- |:------ |------------|
-|`production` | Boolean | Indicates whether requests hit Datatrans' production or development environment. Defaults to *false*.|
-|`onLoaded` | Function | Called when payment page is loaded.|
-|`onOpened` | Function | Called when payment page is opened.|
-|`onCancelled` | Function | Called when user has cancelled payment.|
-|`onError` | Function | Called when there was an error loading the payment page.|
+| Property | Mandatory | Type | Description |
+| -------- | --------- | ---- | ----------- |
+| `transactionId` | **Yes** | String | Transaction ID returned by [Initializing Transactions](https://docs.datatrans.ch/docs/redirect-lightbox#section-initializing-transactions). |
+| `production` | No | Boolean | Indicates whether requests hit Datatrans' production or sandbox environment. Defaults to `false` (sandbox). |
+| `onLoaded` | No | Function | Called when payment page is loaded. |
+| `onOpened` | No | Function | Called when payment page is opened. |
+| `onCancelled` | No | Function | Called when user has cancelled payment. |
+| `onError` | No | Function | Called when there was an error loading the payment page. |
 
 [npm-url]: https://npmjs.com/package/react-datatrans-light-box
 [npm-version-image]: https://img.shields.io/npm/v/react-datatrans-light-box.svg?style=flat-square
