@@ -19,6 +19,7 @@ export default () => {
   const onCancelled = () => showLightbox(false)
   const onError = (data) => {
     console.log('Error:', data)
+    setLoading(false)
     showLightbox(false)
   }
 
@@ -36,16 +37,16 @@ export default () => {
           <small><a href="https://api-reference.datatrans.ch/#section/Authentication">Documentation: Authentication</a></small>
         </p>
 
-        <label for='merchantId'>
+        <label htmlFor='merchantId'>
           Datatrans MerchantId
           <input id='merchantId' type='text' value={merchantId} onChange={(e) => setMerchantId(e.target.value)} />
         </label>
-        <label for='password'>
+        <label htmlFor='password'>
           Password
           <input id='password' type='password' value={password} onChange={(e) => setPassword(e.target.value)} />
         </label>
 
-        <label for='amount'>
+        <label htmlFor='amount'>
           Amount in the currency's smallest unit<br/>(e.g. 1000 = 10CHF)
           <input id='amount' type='text' value={amount} onChange={(e) => setAmount(e.target.value)} />
         </label>
@@ -65,8 +66,8 @@ export default () => {
           </pre>
         </code>
         <h2>Step 3:</h2>
-        <p>Copy the transactionId from the call above:<br/>Please note that a transactionId is only valid for 30 minutes.</p>
-        <label for='transactionId'>
+        <p>Copy the transactionId from the call above:<br/>Please note that a transactionId is only valid htmlFor 30 minutes.</p>
+        <label htmlFor='transactionId'>
           Transaction ID
           <input id='transactionId' type='text' value={transactionId} onChange={(e) => setTransactionId(e.target.value)} />
         </label>
