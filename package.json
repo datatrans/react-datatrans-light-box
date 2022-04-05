@@ -1,6 +1,6 @@
 {
   "name": "react-datatrans-light-box",
-  "version": "3.0.2",
+  "version": "3.1.0",
   "description": "Datatrans Lightbox component for React apps",
   "main": "lib/main.js",
   "keywords": [
@@ -24,7 +24,7 @@
     "example:start": "parcel serve example/index.html"
   },
   "peerDependencies": {
-    "react": "^16.8.0"
+    "react": ">=16"
   },
   "devDependencies": {
     "babel": "^6.5.2",
