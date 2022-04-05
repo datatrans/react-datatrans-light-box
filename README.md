@@ -1,4 +1,4 @@
-[![NPM version][npm-version-image]][npm-url] [![Build Status](https://circleci.com/gh/datatrans/react-datatrans-light-box.png?circle-token=:circle-token)](https://circleci.com/gh/datatrans/react-datatrans-light-box)
+[![NPM version][npm-version-image]][npm-url] ![CI](https://github.com/datatrans/react-datatrans-light-box/actions/workflows/ci.yml/badge.svg?branch=master)
 
 # Datatrans React Light Box
 
