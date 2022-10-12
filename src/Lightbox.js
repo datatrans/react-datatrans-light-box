@@ -6,13 +6,15 @@ const getUrl = (production) => production
   : 'https://pay.sandbox.datatrans.com/upp/payment/js/datatrans-2.0.0.min.js'
 
 const startPayment = (props) => {
-  window.Datatrans.startPayment({
-    transactionId: props.transactionId,
-    loaded: props.onLoaded,
-    opened: props.onOpened,
-    closed: props.onCancelled,
-    error: props.onError
-  })
+  if (window.Datatrans) {
+    window.Datatrans.startPayment({
+      transactionId: props.transactionId,
+      loaded: props.onLoaded,
+      opened: props.onOpened,
+      closed: props.onCancelled,
+      error: props.onError
+    })
+  }
 }
 
 const cleanupLightbox = () => {
