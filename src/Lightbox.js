@@ -2,8 +2,8 @@ import { useEffect } from 'react'
 import PropTypes from 'prop-types'
 
 const getUrl = (production) => production
-  ? 'https://pay.datatrans.com/upp/payment/js/datatrans-2.0.0.min.js'
-  : 'https://pay.sandbox.datatrans.com/upp/payment/js/datatrans-2.0.0.min.js'
+  ? 'https://pay.datatrans.com/upp/payment/js/datatrans-2.0.0.global.min.js'
+  : 'https://pay.sandbox.datatrans.com/upp/payment/js/datatrans-2.0.0.global.min.js'
 
 const startPayment = (props) => {
   if (window.Datatrans) {
