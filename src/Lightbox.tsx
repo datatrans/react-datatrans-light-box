@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import PropTypes from 'prop-types'
+import { DatatransLightboxConfig, GlobalDatatransApi } from './Datatrans'
 
 const getUrl = (production: boolean) => production
   ? 'https://pay.datatrans.com/upp/payment/js/datatrans-2.0.0.global.min.js'
@@ -14,23 +15,11 @@ export interface LightboxProps {
   onError?: () => void
 }
 
-export interface LightboxConfig {
-  transactionId: string
-  loaded?: () => void
-  opened?: () => void
-  cancelled?: () => void
-  error?: () => void
+declare let window: Window & {
+  Datatrans?: GlobalDatatransApi
 }
 
-
-declare let window: Window & {
-  Datatrans?: {
-    startPayment: (config: LightboxConfig) => void
-    close: () => void
-  }
-};
-
-const startPayment = (config: LightboxConfig) => {
+const startPayment = (config: DatatransLightboxConfig) => {
   if (window.Datatrans) {
     window.Datatrans.startPayment(config)
   }
