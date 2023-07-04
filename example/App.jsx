@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Lightbox from '../src'
+import Lightbox from '../'
 
 export default () => {
   const [lightbox, showLightbox] = useState(false)
