@@ -59,7 +59,7 @@ export interface IDatatransConfigParams {
   currency?: string;
   /**
    * This parameter represents the URL of the merchant’s web shop, application, where the consumer should be redirected to after a failed transaction
-   */
+  */
   errorUrl: string;
   /** Expiry month of the card. For example "1" or "01" for January. */
   expm?: string;
@@ -83,7 +83,7 @@ export interface IDatatransConfigParams {
    *  - pl (Polish)
    *  - pt (Portuguese)
    */
-  language?: "de" | "en" | "fr" | "it" | "es" | "el" | "no" | "da" | "pl" | "pt";
+  language?: 'de' | 'en' | 'fr' | 'it' | 'es' | 'el' | 'no' | 'da' | 'pl' | 'pt';
   /**
    * Unique Merchant Identifier (assigned by Datatrans during signup).
    * Depending on your integration you might receive multiple merchantIds.
@@ -107,7 +107,7 @@ export interface IDatatransConfigParams {
    *   Only a pre-screening request should be done. Not all payment methods support pre-screening requests.
    *   Refer to the reqtype request parameter documentation for the particular payment method to see if pre-screening requests are supported.
    */
-  reqtype?: "NOA" | "CAA" | "SCN";
+  reqtype?: 'NOA' | 'CAA' | 'SCN';
   /**
    * The sign parameter to be submitted with each request.
    * @see https://api-reference.datatrans.ch/xml/#request-signing
@@ -135,7 +135,7 @@ interface IDatatransConfigThemeConfiguration {
   /**
    * Wheter the payment page shows the payment method selection as list (default) or as a grid.
    */
-  initialView?: "list" | "grid";
+  initialView?: 'list' | 'grid';
   /**
    * Decides whether the logo shall be styled with a border around it,
    * if the value is true the default background color is chosen,
@@ -150,15 +150,15 @@ interface IDatatransConfigThemeConfiguration {
   /**
    * The header logo's display style.
    */
-  logoType?: "circle" | "rectangle" | "none";
+  logoType?: 'circle' | 'rectangle' | 'none';
   /**
    * Hides the title from header
    * (Only required if no logo is used)
    */
-  brandTitle?: "false";
+  brandTitle?: 'false',
   /**
    * Color for the title [white|black]
    * (Only required if no logo is used)
    */
-  textColor: "black" | "white";
+  textColor: 'black' | 'white'
 }
