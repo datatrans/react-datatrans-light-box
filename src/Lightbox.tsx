@@ -12,7 +12,7 @@ export interface LightboxProps {
   onLoaded?: () => void
   onOpened?: () => void
   onCancelled?: () => void
-  onError?: (error: { message: string; detail: string }) => void
+  onError?: (error: { message: string; detail: string }) => void // eslint-disable-line no-unused-vars
 }
 
 declare let window: Window & {

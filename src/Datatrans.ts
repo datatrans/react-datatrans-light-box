@@ -22,7 +22,7 @@ export interface GlobalDatatransApi {
  */
 export interface DatatransLightboxConfig {
   closed?: () => void;
-  error?: (error: { message: string; detail: string }) => void;
+  error?: (error: { message: string; detail: string }) => void; // eslint-disable-line no-unused-vars
   form?: unknown;
   loaded?: () => void;
   opened?: () => void;
