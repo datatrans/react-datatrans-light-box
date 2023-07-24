@@ -12,7 +12,7 @@ export interface LightboxProps {
   onLoaded?: () => void
   onOpened?: () => void
   onCancelled?: () => void
-  onError?: () => void
+  onError?: (error: { message: string; detail: string }) => void
 }
 
 declare let window: Window & {
