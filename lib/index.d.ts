@@ -6,7 +6,10 @@ interface LightboxProps {
     onLoaded?: () => void;
     onOpened?: () => void;
     onCancelled?: () => void;
-    onError?: () => void;
+    onError?: (error: {
+        message: string;
+        detail: string;
+    }) => void;
 }
 declare const Lightbox: {
     (props: LightboxProps): null;
@@ -35,7 +38,10 @@ declare const Lightbox: {
  */
 interface DatatransLightboxConfig {
     closed?: () => void;
-    error?: () => void;
+    error?: (error: {
+        message: string;
+        detail: string;
+    }) => void;
     form?: unknown;
     loaded?: () => void;
     opened?: () => void;
